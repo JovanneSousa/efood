@@ -1,12 +1,12 @@
-import logo from '../Assets/image/logo.png'
-import { Cabecalho, ImageHeader, TituloHeader } from './styles'
+import Logo from '../Logo'
+import { Cabecalho, TituloHeader } from './styles'
 
 const Header = () => {
   return (
     <Cabecalho>
       <div className="container">
         <h1>
-          <ImageHeader src={logo} alt="logo efood" />
+          <Logo />
         </h1>
         <TituloHeader>
           Viva experiências gastronômicas <br /> no conforto de sua casa

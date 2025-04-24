@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-import hero from '../Assets/image/Vector.png'
-import { cores } from '../GlobalStyle'
+import hero from '../../Assets/image/Vector.png'
+import { cores } from '../../GlobalStyle'
 
 export const Cabecalho = styled.header`
 padding: 40px;
