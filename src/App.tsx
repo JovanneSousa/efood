@@ -1,3 +1,4 @@
+import Footer from './Footer'
 import { GlobalStyle } from './GlobalStyle'
 import Header from './Header'
 
@@ -6,6 +7,7 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
+      <Footer />
     </>
   )
 }
