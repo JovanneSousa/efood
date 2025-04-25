@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 
 export const cores = {
   corTexto: '#e66767',
-  corFooter: '#FFEBD9'
+  corFooter: '#FFEBD9',
+  corDeFundo: '#fff8f2'
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -13,7 +14,11 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         list-style: none;
         text-decoration: none;
-    }
+        }
+        
+        body {
+          background-color: ${cores.corDeFundo};
+        }
 
     .container {
     max-width: 1024px;
