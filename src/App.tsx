@@ -1,16 +1,21 @@
-import Footer from './Components/Footer'
-import { GlobalStyle } from './GlobalStyle'
-import Header from './Components/Header'
-import RestauranteList from './Components/RestauranteList/'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './Pages/Home'
+import Restaurante from './Pages/Restaurantes/HiokiSushi'
+
+const Rotas = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/restaurantes" element={<Restaurante />} />
+    </Routes>
+  )
+}
 
 function App() {
   return (
-    <>
-      <GlobalStyle />
-      <Header />
-      <RestauranteList />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Rotas />
+    </BrowserRouter>
   )
 }
 

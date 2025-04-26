@@ -4,8 +4,8 @@ import hero from '../../Assets/image/Vector.png'
 import { cores } from '../../GlobalStyle'
 
 export const Cabecalho = styled.header`
-padding: 40px;
-    height: 384px;
+  padding: 40px;
+  height: 384px;
   background-image: url(${hero})};
 `
 export const ImageHeader = styled.img`

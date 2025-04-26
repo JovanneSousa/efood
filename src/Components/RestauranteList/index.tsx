@@ -9,6 +9,8 @@ const RestauranteList = () => {
         <CardRestaurante />
         <CardRestaurante />
         <CardRestaurante />
+        <CardRestaurante />
+        <CardRestaurante />
       </RestauranteSection>
     </div>
   )
