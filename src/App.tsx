@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
-import Restaurante from './Pages/Restaurantes/HiokiSushi'
+import Restaurante from './Pages/Restaurantes'
+import { GlobalStyle } from './GlobalStyle'
+import Footer from './Components/Footer'
 
 const Rotas = () => {
   return (
@@ -14,7 +16,9 @@ const Rotas = () => {
 function App() {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Rotas />
+      <Footer />
     </BrowserRouter>
   )
 }
