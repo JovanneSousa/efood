@@ -1,16 +1,26 @@
 import CardRestaurante from '../CardRestaurante'
 import { RestauranteSection } from './styles'
+import Restaurantes from '../Models/Restaurante'
 
-const RestauranteList = () => {
+export type Props = {
+  Restaurantess: Restaurantes[]
+}
+
+const RestauranteList = ({ Restaurantess }: Props) => {
   return (
     <div className="container">
       <RestauranteSection>
-        <CardRestaurante />
-        <CardRestaurante />
-        <CardRestaurante />
-        <CardRestaurante />
-        <CardRestaurante />
-        <CardRestaurante />
+        {Restaurantess.map((Restaurantess) => (
+          <CardRestaurante
+            nome={Restaurantess.nome}
+            descricao={Restaurantess.descricao}
+            key={Restaurantess.id}
+            nota={Restaurantess.nota}
+            id={Restaurantess.id}
+            categoria={Restaurantess.categoria}
+            image={Restaurantess.image}
+          />
+        ))}
       </RestauranteSection>
     </div>
   )

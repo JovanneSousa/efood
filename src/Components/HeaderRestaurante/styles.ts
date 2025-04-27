@@ -2,9 +2,13 @@ import styled from 'styled-components'
 import fundo from '../../Assets/image/Vector.png'
 import macarrao from '../../Assets/image/macarrao.png'
 import { cores } from '../../GlobalStyle'
+import { Link } from 'react-router-dom'
 
 export const BackgroundHeader = styled.header`
     background-image: url(${fundo})} 
+`
+export const Nav = styled(Link)`
+  color: ${cores.corTexto};
 `
 
 export const HeaderRestauranteTitulo = styled.div`

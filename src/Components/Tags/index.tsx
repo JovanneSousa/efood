@@ -1,11 +1,16 @@
 import { CategoriaContainer, Categoria } from './styles'
 
-const Tag = () => {
+type Props = {
+  categoria: string[]
+}
+
+const Tag = ({ categoria }: Props) => {
   return (
     <>
       <CategoriaContainer>
-        <Categoria>Destaque da semana</Categoria>
-        <Categoria>Japonesa</Categoria>
+        {categoria.map((cat) => (
+          <Categoria key={cat}>{cat}</Categoria>
+        ))}
       </CategoriaContainer>
     </>
   )

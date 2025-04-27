@@ -7,6 +7,10 @@ export const CardRestauranteItem = styled.div`
   border: 1px solid ${cores.corTexto};
   heigh: 398px;
   position: relative;
+
+  img {
+    width: 100%;
+  }
 `
 
 export const DescRestaurante = styled.div`

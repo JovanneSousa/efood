@@ -3,6 +3,7 @@ import {
   BackgroundHeader,
   BannerSection,
   HeaderRestauranteTitulo,
+  Nav,
   NomeRestaurante,
   TipoRestaurante
 } from './styles'
@@ -11,7 +12,7 @@ const HeaderRestaurante = () => {
   return (
     <BackgroundHeader>
       <HeaderRestauranteTitulo className="container">
-        <h3>Restaurantes</h3>
+        <Nav to="/">Restaurantes</Nav>
         <Logo />
         <span>0 produtos no carrinho</span>
       </HeaderRestauranteTitulo>
