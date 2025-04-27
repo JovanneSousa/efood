@@ -1,7 +1,8 @@
 import Header from '../../Components/Header'
 import Restaurante from '../../Components/Models/Restaurante'
 import RestauranteList from '../../Components/RestauranteList'
-import pizza from '../../Assets/image/pizza.png'
+import italian from '../../Assets/image/italian.png'
+import japan from '../../Assets/image/sushi.png'
 
 const Restaurantess: Restaurante[] = [
   {
@@ -11,7 +12,7 @@ const Restaurantess: Restaurante[] = [
     id: 1,
     nome: 'Hioki Sushi',
     nota: 4.9,
-    image: pizza
+    image: japan
   },
   {
     categoria: ['Italiano'],
@@ -20,7 +21,7 @@ const Restaurantess: Restaurante[] = [
     id: 2,
     nome: 'La Dolce Vitta Trattoria',
     nota: 4.6,
-    image: pizza
+    image: italian
   },
   {
     categoria: ['Italiano'],
@@ -29,7 +30,7 @@ const Restaurantess: Restaurante[] = [
     id: 3,
     nome: 'La Dolce Vitta Trattoria',
     nota: 4.6,
-    image: pizza
+    image: italian
   },
   {
     categoria: ['Italiano'],
@@ -38,7 +39,7 @@ const Restaurantess: Restaurante[] = [
     id: 4,
     nome: 'La Dolce Vitta Trattoria',
     nota: 4.6,
-    image: pizza
+    image: italian
   },
   {
     categoria: ['Italiano'],
@@ -47,7 +48,7 @@ const Restaurantess: Restaurante[] = [
     id: 5,
     nome: 'La Dolce Vitta Trattoria',
     nota: 4.6,
-    image: pizza
+    image: italian
   },
   {
     categoria: ['Italiano'],
@@ -56,7 +57,7 @@ const Restaurantess: Restaurante[] = [
     id: 6,
     nome: 'La Dolce Vitta Trattoria',
     nota: 4.6,
-    image: pizza
+    image: italian
   }
 ]
 

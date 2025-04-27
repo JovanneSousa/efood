@@ -1,15 +1,23 @@
 import CardProduto from '../CardProduto'
 import { ListaProdutos } from './styles'
-import pizza from '../../Assets/image/pizza.png'
+import ProdutoItem from '../Models/Produtos'
 
-const ListaRestaurante = () => {
+export type Props = {
+  Produto: ProdutoItem[]
+}
+
+const ListaRestaurante = ({ Produto }: Props) => {
   return (
     <ListaProdutos className="container">
-      <CardProduto
-        item="Pizza Marguerita"
-        descricao="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!"
-        image={pizza}
-      />
+      {Produto.map((Produto) => (
+        <CardProduto
+          key={Produto.id}
+          descricao={Produto.descricao}
+          image={Produto.image}
+          nome={Produto.nome}
+          id={Produto.id}
+        />
+      ))}
     </ListaProdutos>
   )
 }

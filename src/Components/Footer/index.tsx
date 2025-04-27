@@ -1,4 +1,3 @@
-import logo from '../../Assets/image/logo.png'
 import facebook from '../../Assets/image/Facebook.png'
 import twitter from '../../Assets/image/Twitter.png'
 import instagram from '../../Assets/image/Instagram.png'

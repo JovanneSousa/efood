@@ -6,5 +6,5 @@ export const ContainerImg = styled.div`
   width: 126px;
 `
 export const ImgLogo = styled.img`
-  widht: 100%;
+  width: 100%;
 `

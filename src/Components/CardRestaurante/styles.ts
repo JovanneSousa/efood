@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../GlobalStyle'
 import { Link } from 'react-router-dom'
-import sushi from '../../Assets/image/sushi.png'
 
 export const CardRestauranteItem = styled.div`
   border: 1px solid ${cores.corTexto};
@@ -15,11 +14,15 @@ export const CardRestauranteItem = styled.div`
 
 export const DescRestaurante = styled.div`
   padding: 8px;
+  background-color: ${cores.branco};
 `
 
 export const TextDescRestaurante = styled.p`
   font-size: 14px;
   line-height: 22px;
+  max-height: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 export const TituloRestaurante = styled.div`
   display: flex;

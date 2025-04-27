@@ -1,21 +1,21 @@
 import { CardContainer, DescProduto, NomeProduto } from './styles'
-import pizza from '../../Assets/image/pizza.png'
 import Button from '../Button'
 
 type Props = {
-  item: string
+  nome: string
   descricao: string
   image: string
+  id: number
 }
 
-const CardProduto = ({ descricao, image, item }: Props) => {
+const CardProduto = ({ descricao, image, nome }: Props) => {
   return (
     <CardContainer>
       <div>
-        <img src={image} alt={item} />
+        <img src={image} alt={nome} />
       </div>
       <div>
-        <NomeProduto>{item}</NomeProduto>
+        <NomeProduto>{nome}</NomeProduto>
         <DescProduto>{descricao}</DescProduto>
         <Button />
       </div>
