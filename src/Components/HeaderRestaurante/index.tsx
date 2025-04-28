@@ -2,6 +2,7 @@ import Logo from '../Logo'
 import {
   BackgroundHeader,
   BannerSection,
+  ContainersHeader,
   HeaderRestauranteTitulo,
   Nav,
   NomeRestaurante,
@@ -12,9 +13,15 @@ const HeaderRestaurante = () => {
   return (
     <BackgroundHeader>
       <HeaderRestauranteTitulo className="container">
-        <Nav to="/">Restaurantes</Nav>
-        <Logo />
-        <span>0 produtos no carrinho</span>
+        <ContainersHeader>
+          <Nav to="/">Restaurantes</Nav>
+        </ContainersHeader>
+        <ContainersHeader>
+          <Logo />
+        </ContainersHeader>
+        <ContainersHeader>
+          <span>0 produtos no carrinho</span>
+        </ContainersHeader>
       </HeaderRestauranteTitulo>
       <BannerSection>
         <div className="container">

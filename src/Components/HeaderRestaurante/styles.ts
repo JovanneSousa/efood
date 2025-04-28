@@ -18,10 +18,8 @@ export const Nav = styled(Link)`
     color: ${cores.corTexto};
   }
 `
-export const HeaderLogo = styled(Logo)`
-  position: absolute; /* <- isso é essencial */
-  left: 50%;
-  transform: translateX(-50%);
+export const ContainersHeader = styled.div`
+  width: 168px;
 `
 
 export const HeaderRestauranteTitulo = styled.div`
