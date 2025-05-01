@@ -10,4 +10,5 @@ export const ButtonCarrinho = styled.button`
   font-weight: bold;
   padding: 4px 0;
   margin-top: 8px;
+  cursor: pointer;
 `

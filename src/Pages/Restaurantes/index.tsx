@@ -34,10 +34,10 @@ const Restaurantes = () => {
     )
   }
   return (
-    <>
+    <div>
       <HeaderRestaurante tipo={restaurante.tipo} nome={restaurante.titulo} />
       <ListaRestaurante produtos={restaurante.cardapio} />
-    </>
+    </div>
   )
 }
 export default Restaurantes
