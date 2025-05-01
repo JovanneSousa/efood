@@ -1,4 +1,5 @@
 import Logo from '../Logo'
+import fundo from '../../Assets/image/Vector.png'
 import {
   BackgroundHeader,
   BannerSection,
@@ -8,13 +9,15 @@ import {
   NomeRestaurante,
   TipoRestaurante
 } from './styles'
+import { Restaurante } from '../../Pages/Home'
 
 type Props = {
   tipo: string[]
   nome: string
+  restaurante: Restaurante
 }
 
-const HeaderRestaurante = ({ nome, tipo }: Props) => {
+const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
   return (
     <BackgroundHeader>
       <HeaderRestauranteTitulo className="container">
@@ -28,7 +31,7 @@ const HeaderRestaurante = ({ nome, tipo }: Props) => {
           <span>0 produtos no carrinho</span>
         </ContainersHeader>
       </HeaderRestauranteTitulo>
-      <BannerSection>
+      <BannerSection style={{ backgroundImage: `url(${restaurante.capa})` }}>
         <div className="container">
           <TipoRestaurante>{tipo}</TipoRestaurante>
           <NomeRestaurante>{nome}</NomeRestaurante>

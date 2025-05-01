@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import fundo from '../../Assets/image/Vector.png'
-import macarrao from '../../Assets/image/macarrao.png'
 import { cores } from '../../GlobalStyle'
 import { Link } from 'react-router-dom'
 
@@ -35,7 +34,6 @@ export const HeaderRestauranteTitulo = styled.div`
 `
 
 export const BannerSection = styled.div`
-  background-image: url(${macarrao});
   color: ${cores.branco};
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: darken;
