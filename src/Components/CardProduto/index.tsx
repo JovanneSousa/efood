@@ -9,6 +9,13 @@ type Props = {
 }
 
 const CardProduto = ({ descricao, image, nome }: Props) => {
+  const formataTexto = (descricao: string) => {
+    if (descricao.length > 149) {
+      return descricao.slice(0, 146) + '...'
+    }
+    return descricao
+  }
+
   return (
     <CardContainer>
       <div>
@@ -16,7 +23,7 @@ const CardProduto = ({ descricao, image, nome }: Props) => {
       </div>
       <div>
         <NomeProduto>{nome}</NomeProduto>
-        <DescProduto>{descricao}</DescProduto>
+        <DescProduto>{formataTexto(descricao)}</DescProduto>
         <Button />
       </div>
     </CardContainer>

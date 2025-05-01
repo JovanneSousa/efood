@@ -17,6 +17,7 @@ type Props = {
   nota: number
   id: number
   image: string
+  destaque: boolean
 }
 
 const CardRestaurante = ({
@@ -24,11 +25,13 @@ const CardRestaurante = ({
   descricao,
   nome,
   nota,
-  image
+  image,
+  destaque,
+  id
 }: Props) => {
   return (
     <CardRestauranteItem>
-      <Tag categoria={categoria} />
+      <Tag destaque={destaque} categoria={categoria} />
       <img src={image} />
       <DescRestaurante>
         <TituloRestaurante>
@@ -40,7 +43,7 @@ const CardRestaurante = ({
         </TituloRestaurante>
         <TextDescRestaurante>{descricao}</TextDescRestaurante>
         <ContainerLink>
-          <SaibaMais to="/restaurantes">Saiba Mais</SaibaMais>
+          <SaibaMais to={`/restaurantes/${id}`}>Saiba Mais</SaibaMais>
         </ContainerLink>
       </DescRestaurante>
     </CardRestauranteItem>

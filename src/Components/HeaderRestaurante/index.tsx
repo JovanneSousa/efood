@@ -9,7 +9,12 @@ import {
   TipoRestaurante
 } from './styles'
 
-const HeaderRestaurante = () => {
+type Props = {
+  tipo: string[]
+  nome: string
+}
+
+const HeaderRestaurante = ({ nome, tipo }: Props) => {
   return (
     <BackgroundHeader>
       <HeaderRestauranteTitulo className="container">
@@ -25,8 +30,8 @@ const HeaderRestaurante = () => {
       </HeaderRestauranteTitulo>
       <BannerSection>
         <div className="container">
-          <TipoRestaurante>Italiana</TipoRestaurante>
-          <NomeRestaurante>La Dolce Vita Trattoria</NomeRestaurante>
+          <TipoRestaurante>{tipo}</TipoRestaurante>
+          <NomeRestaurante>{nome}</NomeRestaurante>
         </div>
       </BannerSection>
     </BackgroundHeader>

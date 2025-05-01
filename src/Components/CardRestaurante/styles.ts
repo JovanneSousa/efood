@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom'
 
 export const CardRestauranteItem = styled.div`
   border: 1px solid ${cores.corTexto};
-  heigh: 398px;
+  height: 398px;
   position: relative;
 
-  img {
-    width: 100%;
+  > img {
+    width: 472px;
+    height: 215px;
+    object-fit: cover;
   }
 `
 

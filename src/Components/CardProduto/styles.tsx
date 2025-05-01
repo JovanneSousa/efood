@@ -5,6 +5,11 @@ export const CardContainer = styled.div`
   padding: 8px;
   background-color: ${cores.corTexto};
   color: ${cores.corFooter};
+
+  img {
+    width: 304px;
+    height: 167px;
+  }
 `
 export const NomeProduto = styled.h4`
   font-size: 16px;
