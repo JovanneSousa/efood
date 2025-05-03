@@ -1,25 +1,25 @@
-import { Restaurante } from '../../Pages/Home'
+import { useGetRestaurantesQuery } from '../../services/api'
 import CardRestaurante from '../CardRestaurante'
 import { RestauranteSection } from './styles'
 
-export type Props = {
-  Restaurantes: Restaurante[]
-}
+const RestauranteList = () => {
+  const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
 
-const RestauranteList = ({ Restaurantes }: Props) => {
+  if (isLoading) return <h3>Carregando...</h3>
+
   return (
     <div className="container">
       <RestauranteSection>
-        {Restaurantes.map((Restaurante) => (
+        {restaurantes?.map((restaurante) => (
           <CardRestaurante
-            destaque={Restaurante.destacado}
-            nome={Restaurante.titulo}
-            descricao={Restaurante.descricao}
-            key={Restaurante.id}
-            nota={Restaurante.avaliacao}
-            id={Restaurante.id}
-            categoria={Restaurante.tipo}
-            image={Restaurante.capa}
+            destaque={restaurante.destacado}
+            nome={restaurante.titulo}
+            descricao={restaurante.descricao}
+            key={restaurante.id}
+            nota={restaurante.avaliacao}
+            id={restaurante.id}
+            categoria={restaurante.tipo}
+            image={restaurante.capa}
           />
         ))}
       </RestauranteSection>

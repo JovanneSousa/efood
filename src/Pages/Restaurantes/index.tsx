@@ -3,6 +3,7 @@ import HeaderRestaurante from '../../Components/HeaderRestaurante'
 import { Restaurante } from '../Home'
 import ListaRestaurante from '../../Components/ListaProdutos'
 import { useParams } from 'react-router-dom'
+import { useGetRestaurantesQuery } from '../../services/api'
 
 export type Produto = {
   foto: string
@@ -15,16 +16,9 @@ export type Produto = {
 
 const Restaurantes = () => {
   const { id } = useParams()
-  const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
+  const { data: restaurantes } = useGetRestaurantesQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res: Restaurante[]) => {
-        const encontrado = res.find((r) => r.id === Number(id))
-        setRestaurante(encontrado || null)
-      })
-  }, [id])
+  const restaurante = restaurantes?.find((r) => r.id === Number(id))
 
   if (!restaurante) {
     return (
