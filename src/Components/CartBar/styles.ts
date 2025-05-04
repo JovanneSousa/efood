@@ -7,13 +7,17 @@ export const CartContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
 
   .overlay {
     background-color: #000;
     opacity: 0.8;
     width: 100%;
     height: 100%;
+  }
+
+  &.is-open {
+    display: flex;
   }
 `
 
@@ -67,6 +71,7 @@ export const Trash = styled.img`
   position: absolute;
   right: 8px;
   bottom: 8px;
+  cursor: pointer;
 `
 
 export const Price = styled.div`

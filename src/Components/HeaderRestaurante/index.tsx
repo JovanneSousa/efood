@@ -1,5 +1,4 @@
 import Logo from '../Logo'
-import fundo from '../../Assets/image/Vector.png'
 import {
   BackgroundHeader,
   BannerSection,
@@ -10,6 +9,9 @@ import {
   TipoRestaurante
 } from './styles'
 import { Restaurante } from '../../Pages/Home'
+import { open } from '../../store/reducers/cart'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 
 type Props = {
   tipo: string[]
@@ -18,6 +20,12 @@ type Props = {
 }
 
 const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
+  const { items } = useSelector((state: RootReducer) => state.cart)
+  const dispatch = useDispatch()
+  const deixaVisivel = () => {
+    dispatch(open())
+  }
+
   return (
     <BackgroundHeader>
       <HeaderRestauranteTitulo className="container">
@@ -28,7 +36,9 @@ const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
           <Logo />
         </ContainersHeader>
         <ContainersHeader>
-          <span>0 produtos no carrinho</span>
+          <span onClick={deixaVisivel}>
+            {items.length} produtos no carrinho
+          </span>
         </ContainersHeader>
       </HeaderRestauranteTitulo>
       <BannerSection style={{ backgroundImage: `url(${restaurante.capa})` }}>

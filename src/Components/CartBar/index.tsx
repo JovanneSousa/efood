@@ -7,76 +7,50 @@ import {
   Trash,
   ProductContainer
 } from './styles'
-import pizza from '../../Assets/image/pizza.png'
 import lixeira from '../../Assets/image/lixeira.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+
+import { close, remove } from '../../store/reducers/cart'
+import { formataPreco } from '../Modal'
 
 const CartBar = () => {
+  const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const dispatch = useDispatch()
+
+  const closeCart = () => {
+    dispatch(close())
+  }
+
+  const removeItem = (id: number) => {
+    dispatch(remove(id))
+  }
+
+  const getTotalPrice = () => {
+    return items.reduce((acumulador, valorAtual) => {
+      return acumulador + (valorAtual.preco ?? 0)
+    }, 0)
+  }
+
   return (
-    <CartContainer>
-      <div className="overlay"></div>
+    <CartContainer className={isOpen ? 'is-open' : ''}>
+      <div className="overlay" onClick={closeCart}></div>
       <SideBar>
         <ProductContainer>
-          <Produto>
-            <img src={pizza} />
-            <div>
-              <h4>Nome Produto</h4>
-              <p>R$ 60,90</p>
-              <Trash src={lixeira} />
-            </div>
-          </Produto>
-          <Produto>
-            <img src={pizza} />
-            <div>
-              <h4>Nome Produto</h4>
-              <p>R$ 60,90</p>
-              <Trash src={lixeira} />
-            </div>
-          </Produto>
-          <Produto>
-            <img src={pizza} />
-            <div>
-              <h4>Nome Produto</h4>
-              <p>R$ 60,90</p>
-              <Trash src={lixeira} />
-            </div>
-          </Produto>
-          <Produto>
-            <img src={pizza} />
-            <div>
-              <h4>Nome Produto</h4>
-              <p>R$ 60,90</p>
-              <Trash src={lixeira} />
-            </div>
-          </Produto>
-          <Produto>
-            <img src={pizza} />
-            <div>
-              <h4>Nome Produto</h4>
-              <p>R$ 60,90</p>
-              <Trash src={lixeira} />
-            </div>
-          </Produto>
-          <Produto>
-            <img src={pizza} />
-            <div>
-              <h4>Nome Produto</h4>
-              <p>R$ 60,90</p>
-              <Trash src={lixeira} />
-            </div>
-          </Produto>
-          <Produto>
-            <img src={pizza} />
-            <div>
-              <h4>Nome Produto</h4>
-              <p>R$ 60,90</p>
-              <Trash src={lixeira} />
-            </div>
-          </Produto>
+          {items.map((item) => (
+            <Produto key={item.id}>
+              <img src={item.foto} alt={item.nome} />
+              <div>
+                <h4>{item.nome}</h4>
+                <p>{formataPreco(item.preco)}</p>
+                <Trash src={lixeira} onClick={() => removeItem(item.id)} />
+              </div>
+            </Produto>
+          ))}
         </ProductContainer>
-
         <Price>
           <p>Valor total</p>
-          <p>R$ 182,70</p>
+          <p>{formataPreco(getTotalPrice())}</p>
         </Price>
         <Button>Continuar com a entrega</Button>
       </SideBar>

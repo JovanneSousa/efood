@@ -21,6 +21,7 @@ export const ContainersHeader = styled.div`
 
   span {
     font-size: 18px;
+    cursor: pointer;
   }
 `
 

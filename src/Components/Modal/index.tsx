@@ -7,6 +7,9 @@ import {
 import close from '../../Assets/image/close.png'
 import { Produto } from '../../Pages/Restaurantes'
 
+import { add, open } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
+
 type Props = {
   isVisible: boolean
   onClose: () => void
@@ -21,6 +24,16 @@ export const formataPreco = (preco = 0) => {
 }
 
 const Modal = ({ isVisible, onClose, produto }: Props) => {
+  const dispatch = useDispatch()
+
+  const deixaVisivel = () => {
+    dispatch(open())
+  }
+
+  const addItem = (produto: Produto) => {
+    dispatch(add(produto))
+  }
+
   if (!produto) {
     return <h3>Carregando...</h3>
   }
@@ -40,7 +53,15 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
             <p>{produto.descricao}</p>
             <p>serve: de {produto.porcao}</p>
 
-            <ButtonComprar>{formataPreco(produto.preco)}</ButtonComprar>
+            <ButtonComprar
+              onClick={() => {
+                addItem(produto)
+                deixaVisivel()
+                onClose()
+              }}
+            >
+              {formataPreco(produto.preco)}
+            </ButtonComprar>
           </div>
         </ModalDescription>
       </ModalContent>
