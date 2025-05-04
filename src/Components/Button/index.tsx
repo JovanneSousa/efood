@@ -9,8 +9,10 @@ const Button = ({ className, children, onClick }: Props) => {
   return (
     <ButtonCarrinho className={className} type="button" onClick={onClick}>
       {' '}
-      {children
+      {typeof children === 'number'
         ? `Adicionar ao carrinho - ${children}`
+        : typeof children === 'string'
+        ? children
         : 'Adicionar ao carrinho'}
     </ButtonCarrinho>
   )

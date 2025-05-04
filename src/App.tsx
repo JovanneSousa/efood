@@ -5,6 +5,7 @@ import Restaurantes from './Pages/Restaurantes'
 import { GlobalStyle } from './GlobalStyle'
 import Footer from './Components/Footer'
 import { store } from './store'
+import CartBar from './Components/CartBar'
 
 const Rotas = () => {
   return (
@@ -22,6 +23,7 @@ function App() {
         <GlobalStyle />
         <Rotas />
         <Footer />
+        <CartBar />
       </BrowserRouter>
     </Provider>
   )
