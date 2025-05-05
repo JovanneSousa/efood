@@ -60,7 +60,7 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
                 onClose()
               }}
             >
-              {formataPreco(produto.preco)}
+              {produto.preco}
             </ButtonComprar>
           </div>
         </ModalDescription>
