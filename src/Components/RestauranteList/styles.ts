@@ -10,7 +10,6 @@ export const RestauranteSection = styled.div`
   column-gap: 80px;
   row-gap: 48px;
   color: ${cores.corTexto};
-  max-width: 100%;
 
   @media (max-width: ${breakpoint.tablet}) {
     grid-template-columns: 1fr;
