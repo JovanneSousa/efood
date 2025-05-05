@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import fundo from '../../Assets/image/Vector.png'
 import { cores } from '../../GlobalStyle'
 import { Link } from 'react-router-dom'
+import { breakpoint } from '../../GlobalStyle'
 
 export const BackgroundHeader = styled.header`
   background-image: url(${fundo});
@@ -17,11 +18,22 @@ export const Nav = styled(Link)`
   }
 `
 export const ContainersHeader = styled.div`
-  width: 192px;
+  width: 200px;
 
   span {
     font-size: 18px;
-    cursor: pointer;
+  }
+
+  @media (max-width: ${breakpoint.tablet}) {
+    text-align: center;
+    font-size: 14px;
+    span {
+      font-size: 12px;
+    }
+
+    img {
+      max-width: 100%;
+    }
   }
 `
 

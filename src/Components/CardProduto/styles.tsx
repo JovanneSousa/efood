@@ -7,7 +7,8 @@ export const CardContainer = styled.div`
   color: ${cores.corFooter};
 
   img {
-    width: 304px;
+    max-width: 100%;
+    width: 100%;
     height: 167px;
   }
 `

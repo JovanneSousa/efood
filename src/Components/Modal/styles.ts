@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../GlobalStyle'
+import { breakpoint, cores } from '../../GlobalStyle'
 import Button from '../Button'
 
 export const ModalSection = styled.div`
@@ -71,6 +71,21 @@ export const ModalDescription = styled.div`
     p {
       font-size: 14px;
       line-height: 22px;
+    }
+  }
+
+  @media (max-width: ${breakpoint.tablet}) {
+    display: block;
+    max-width: 100%;
+    margin: 16px;
+    text-align: center;
+
+    div {
+      margin: 0;
+    }
+
+    h3 {
+      margin-top: 16px;
     }
   }
 `

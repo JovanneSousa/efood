@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../GlobalStyle'
+import { breakpoint, cores } from '../../GlobalStyle'
 
 export const RestauranteSection = styled.div`
   margin: 0 auto;
@@ -10,4 +10,9 @@ export const RestauranteSection = styled.div`
   column-gap: 80px;
   row-gap: 48px;
   color: ${cores.corTexto};
+  max-width: 100%;
+
+  @media (max-width: ${breakpoint.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `

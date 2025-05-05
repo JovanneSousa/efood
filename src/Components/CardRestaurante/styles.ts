@@ -8,7 +8,8 @@ export const CardRestauranteItem = styled.div`
   position: relative;
 
   > img {
-    width: 472px;
+    max-width: 472px;
+    width: 100%;
     height: 215px;
     object-fit: cover;
   }

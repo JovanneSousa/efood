@@ -37,7 +37,7 @@ const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
         </ContainersHeader>
         <ContainersHeader>
           <span onClick={deixaVisivel}>
-            {items.length} produtos no carrinho
+            {items.length} produto(s) no carrinho
           </span>
         </ContainersHeader>
       </HeaderRestauranteTitulo>

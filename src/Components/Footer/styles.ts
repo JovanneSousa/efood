@@ -1,9 +1,10 @@
 import styled from 'styled-components'
-import { cores } from '../../GlobalStyle'
+import { breakpoint, cores } from '../../GlobalStyle'
 
 export const FooterSection = styled.footer`
   background-color: ${cores.corFooter};
-  height: 298px;
+  height: 100%;
+  max-height: 298px;
   padding: 40px;
 `
 export const ContainerImage = styled.div`
@@ -21,4 +22,8 @@ export const TextoFooter = styled.p`
   text-align: center;
   margin-top: 80px;
   font-size: 12px;
+
+  @media (max-width: ${breakpoint.tablet}) {
+    margin-top: 64px;
+  }
 `

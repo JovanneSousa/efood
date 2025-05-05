@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../GlobalStyle'
+import { breakpoint, cores } from '../../GlobalStyle'
 
 export const CartContainer = styled.div`
   width: 100%;
@@ -14,10 +14,12 @@ export const CartContainer = styled.div`
     opacity: 0.8;
     width: 100%;
     height: 100%;
+    position: absolute;
   }
 
   &.is-open {
     display: flex;
+    justify-content: flex-end;
   }
 `
 
@@ -26,6 +28,11 @@ export const SideBar = styled.aside`
   max-width: 360px;
   width: 100%;
   padding: 8px;
+  z-index: 1;
+
+  @media (max-width: ${breakpoint.tablet}) {
+    max-width: 80vw;
+  }
 `
 
 export const ProductContainer = styled.div`
