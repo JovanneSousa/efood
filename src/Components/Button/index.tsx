@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from 'react'
 import { ButtonCarrinho } from './styles'
-import { formataPreco } from '../Modal'
+import { formataPreco } from '../ListaProdutos'
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string

@@ -16,13 +16,6 @@ type Props = {
   produto?: Produto
 }
 
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pr-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
-
 const Modal = ({ isVisible, onClose, produto }: Props) => {
   const dispatch = useDispatch()
 
