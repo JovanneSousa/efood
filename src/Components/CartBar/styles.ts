@@ -21,6 +21,14 @@ export const CartContainer = styled.div`
     display: flex;
     justify-content: flex-end;
   }
+
+  .cart-message {
+    color: ${cores.branco};
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    padding: 8px;
+  }
 `
 
 export const SideBar = styled.aside`
