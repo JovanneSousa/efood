@@ -4,9 +4,7 @@ import CardRestaurante from '../CardRestaurante'
 import { RestauranteSection } from './styles'
 
 const RestauranteList = () => {
-  const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
-
-  if (isLoading) return <h3>Carregando...</h3>
+  const { data: restaurantes } = useGetRestaurantesQuery()
 
   return (
     <div className="container">

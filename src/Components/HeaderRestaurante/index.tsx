@@ -6,6 +6,7 @@ import { RootReducer } from '../../store'
 
 import Logo from '../Logo'
 import * as S from './styles'
+import Loader from '../Loader'
 
 type Props = {
   tipo: string[]
@@ -35,6 +36,7 @@ const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
           </span>
         </S.ContainersHeader>
       </S.HeaderRestauranteTitulo>
+      {!restaurante ? <Loader /> : undefined}
       <S.BannerSection style={{ backgroundImage: `url(${restaurante.capa})` }}>
         <div className="container">
           <S.TipoRestaurante>{tipo}</S.TipoRestaurante>

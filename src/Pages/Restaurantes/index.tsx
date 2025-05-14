@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import HeaderRestaurante from '../../Components/HeaderRestaurante'
 import ListaRestaurante from '../../Components/ListaProdutos'
 import { useGetRestaurantesQuery } from '../../services/api'
+import Loader from '../../Components/Loader'
 
 export type Produto = {
   foto: string
@@ -20,11 +21,7 @@ const Restaurantes = () => {
   const restaurante = restaurantes?.find((r) => r.id === Number(id))
 
   if (!restaurante) {
-    return (
-      <div className="container">
-        <h3>Carregando...</h3>
-      </div>
-    )
+    return <Loader />
   }
   return (
     <div>
