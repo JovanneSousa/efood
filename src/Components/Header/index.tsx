@@ -1,18 +1,18 @@
 import Logo from '../Logo'
-import { Cabecalho, TituloHeader } from './styles'
+import * as S from './styles'
 
 const Header = () => {
   return (
-    <Cabecalho>
+    <S.Cabecalho>
       <div className="container">
         <h1>
           <Logo />
         </h1>
-        <TituloHeader>
+        <S.TituloHeader>
           Viva experiências gastronômicas <br /> no conforto de sua casa
-        </TituloHeader>
+        </S.TituloHeader>
       </div>
-    </Cabecalho>
+    </S.Cabecalho>
   )
 }
 

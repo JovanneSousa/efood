@@ -1,8 +1,10 @@
-import * as S from './styles'
-import Button from '../Button'
 import { useState } from 'react'
+
+import Button from '../Button'
 import Modal from '../Modal'
 import { Produto } from '../../Pages/Restaurantes'
+
+import * as S from './styles'
 
 type Props = {
   nome: string
@@ -55,13 +57,13 @@ const CardProduto = ({ descricao, image, nome, id, porcao, preco }: Props) => {
           isVisible={isVisible}
         />
       )}
-      <CardContainer>
+      <S.CardContainer>
         <div>
           <img src={image} alt={nome} />
         </div>
         <div>
-          <NomeProduto>{nome}</NomeProduto>
-          <DescProduto>{formataTexto(descricao)}</DescProduto>
+          <S.NomeProduto>{nome}</S.NomeProduto>
+          <S.DescProduto>{formataTexto(descricao)}</S.DescProduto>
           <Button
             onClick={() => {
               selecionarProduto()
@@ -69,7 +71,7 @@ const CardProduto = ({ descricao, image, nome, id, porcao, preco }: Props) => {
             }}
           />
         </div>
-      </CardContainer>
+      </S.CardContainer>
     </>
   )
 }

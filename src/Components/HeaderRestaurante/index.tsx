@@ -1,17 +1,11 @@
-import Logo from '../Logo'
-import {
-  BackgroundHeader,
-  BannerSection,
-  ContainersHeader,
-  HeaderRestauranteTitulo,
-  Nav,
-  NomeRestaurante,
-  TipoRestaurante
-} from './styles'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { Restaurante } from '../../Pages/Home'
 import { open } from '../../store/reducers/cart'
-import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
+
+import Logo from '../Logo'
+import * as S from './styles'
 
 type Props = {
   tipo: string[]
@@ -27,27 +21,27 @@ const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
   }
 
   return (
-    <BackgroundHeader>
-      <HeaderRestauranteTitulo className="container">
-        <ContainersHeader>
-          <Nav to="/">Restaurantes</Nav>
-        </ContainersHeader>
-        <ContainersHeader>
+    <S.BackgroundHeader>
+      <S.HeaderRestauranteTitulo className="container">
+        <S.ContainersHeader>
+          <S.Nav to="/">Restaurantes</S.Nav>
+        </S.ContainersHeader>
+        <S.ContainersHeader>
           <Logo />
-        </ContainersHeader>
-        <ContainersHeader>
+        </S.ContainersHeader>
+        <S.ContainersHeader>
           <span onClick={deixaVisivel}>
             {items.length} produto(s) no carrinho
           </span>
-        </ContainersHeader>
-      </HeaderRestauranteTitulo>
-      <BannerSection style={{ backgroundImage: `url(${restaurante.capa})` }}>
+        </S.ContainersHeader>
+      </S.HeaderRestauranteTitulo>
+      <S.BannerSection style={{ backgroundImage: `url(${restaurante.capa})` }}>
         <div className="container">
-          <TipoRestaurante>{tipo}</TipoRestaurante>
-          <NomeRestaurante>{nome}</NomeRestaurante>
+          <S.TipoRestaurante>{tipo}</S.TipoRestaurante>
+          <S.NomeRestaurante>{nome}</S.NomeRestaurante>
         </div>
-      </BannerSection>
-    </BackgroundHeader>
+      </S.BannerSection>
+    </S.BackgroundHeader>
   )
 }
 export default HeaderRestaurante

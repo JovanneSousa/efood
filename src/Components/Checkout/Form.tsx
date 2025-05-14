@@ -11,11 +11,10 @@ import {
 } from '../../store/reducers/checkout'
 import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
-import { getTotalPrice } from '../../utils'
+import { getTotalPrice, formataPreco } from '../../utils'
 
 import { InputGroup } from './styles'
 import Button from '../Button'
-import { formataPreco } from '../../utils/'
 
 const Form = () => {
   const [purchase] = usePurchaseMutation()

@@ -1,6 +1,7 @@
 import CardProduto from '../CardProduto'
-import { ListaProdutos } from './styles'
 import { Produto } from '../../Pages/Restaurantes'
+
+import { ListaProdutos } from './styles'
 
 export type Props = {
   produtos: Produto[]

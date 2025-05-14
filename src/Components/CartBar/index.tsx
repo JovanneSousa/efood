@@ -1,14 +1,14 @@
-import Button from '../Button'
-import * as S from './styles'
-import lixeira from '../../Assets/image/lixeira.png'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
 
+import { RootReducer } from '../../store'
 import { close, remove, clear } from '../../store/reducers/cart'
-import { formataPreco } from '../ListaProdutos'
-import { getTotalPrice } from '../../utils'
+import { getTotalPrice, formataPreco } from '../../utils'
 import Checkout from '../Checkout'
 import { resetCheckout, setIspaying } from '../../store/reducers/checkout'
+
+import Button from '../Button'
+import lixeira from '../../Assets/image/lixeira.png'
+import * as S from './styles'
 
 const CartBar = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)

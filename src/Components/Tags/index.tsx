@@ -1,4 +1,4 @@
-import { CategoriaContainer, Categoria } from './styles'
+import * as S from './styles'
 
 type Props = {
   categoria: string[]
@@ -13,12 +13,14 @@ const Tag = ({ categoria, destaque }: Props) => {
     : []
 
   return (
-    <CategoriaContainer>
-      {destaque && <Categoria key={'destaque'}>Destaque da semana</Categoria>}
+    <S.CategoriaContainer>
+      {destaque && (
+        <S.Categoria key={'destaque'}>Destaque da semana</S.Categoria>
+      )}
       {categoriasArray.map((cat) => (
-        <Categoria key={cat}>{cat}</Categoria>
+        <S.Categoria key={cat}>{cat}</S.Categoria>
       ))}
-    </CategoriaContainer>
+    </S.CategoriaContainer>
   )
 }
 

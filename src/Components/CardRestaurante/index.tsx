@@ -1,14 +1,6 @@
 import star from '../../Assets/image/star.png'
 import Tag from '../Tags'
-import {
-  CardRestauranteItem,
-  DescRestaurante,
-  Nota,
-  SaibaMais,
-  TextDescRestaurante,
-  TituloRestaurante,
-  ContainerLink
-} from './styles'
+import * as S from './styles'
 
 type Props = {
   nome: string
@@ -30,23 +22,23 @@ const CardRestaurante = ({
   id
 }: Props) => {
   return (
-    <CardRestauranteItem>
+    <S.CardRestauranteItem>
       <Tag destaque={destaque} categoria={categoria} />
       <img src={image} />
-      <DescRestaurante>
-        <TituloRestaurante>
+      <S.DescRestaurante>
+        <S.TituloRestaurante>
           <h4>{nome}</h4>
-          <Nota>
+          <S.Nota>
             <span>{nota}</span>
             <img src={star} />
-          </Nota>
-        </TituloRestaurante>
-        <TextDescRestaurante>{descricao}</TextDescRestaurante>
-        <ContainerLink>
-          <SaibaMais to={`/restaurantes/${id}`}>Saiba Mais</SaibaMais>
-        </ContainerLink>
-      </DescRestaurante>
-    </CardRestauranteItem>
+          </S.Nota>
+        </S.TituloRestaurante>
+        <S.TextDescRestaurante>{descricao}</S.TextDescRestaurante>
+        <S.ContainerLink>
+          <S.SaibaMais to={`/restaurantes/${id}`}>Saiba Mais</S.SaibaMais>
+        </S.ContainerLink>
+      </S.DescRestaurante>
+    </S.CardRestauranteItem>
   )
 }
 export default CardRestaurante

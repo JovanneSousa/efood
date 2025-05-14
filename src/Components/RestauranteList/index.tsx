@@ -1,5 +1,6 @@
 import { useGetRestaurantesQuery } from '../../services/api'
 import CardRestaurante from '../CardRestaurante'
+
 import { RestauranteSection } from './styles'
 
 const RestauranteList = () => {

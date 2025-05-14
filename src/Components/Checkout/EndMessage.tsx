@@ -1,9 +1,10 @@
-import Button from '../Button'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { clear, close } from '../../store/reducers/cart'
-import { useDispatch, useSelector } from 'react-redux'
 import { resetCheckout } from '../../store/reducers/checkout'
 import { RootReducer } from '../../store'
+
+import Button from '../Button'
 
 const EndMessage = () => {
   const { orderId } = useSelector((state: RootReducer) => state.checkout)

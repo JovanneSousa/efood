@@ -1,14 +1,10 @@
-import {
-  ModalContent,
-  ModalSection,
-  ModalDescription,
-  ButtonComprar
-} from './styles'
-import close from '../../Assets/image/close.png'
-import { Produto } from '../../Pages/Restaurantes'
-
-import { add, open } from '../../store/reducers/cart'
 import { useDispatch } from 'react-redux'
+
+import { Produto } from '../../Pages/Restaurantes'
+import { add, open } from '../../store/reducers/cart'
+
+import * as S from './styles'
+import close from '../../Assets/image/close.png'
 
 type Props = {
   isVisible: boolean
@@ -32,12 +28,12 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
   }
 
   return (
-    <ModalSection className={isVisible ? 'visible' : ''}>
-      <ModalContent className="container">
+    <S.ModalSection className={isVisible ? 'visible' : ''}>
+      <S.ModalContent className="container">
         <header>
           <img src={close} onClick={onClose} alt="fechar" />
         </header>
-        <ModalDescription>
+        <S.ModalDescription>
           <img src={produto.foto} />
 
           <div>
@@ -46,7 +42,7 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
             <p>{produto.descricao}</p>
             <p>serve: de {produto.porcao}</p>
 
-            <ButtonComprar
+            <S.ButtonComprar
               onClick={() => {
                 addItem(produto)
                 deixaVisivel()
@@ -54,12 +50,12 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
               }}
             >
               {produto.preco}
-            </ButtonComprar>
+            </S.ButtonComprar>
           </div>
-        </ModalDescription>
-      </ModalContent>
+        </S.ModalDescription>
+      </S.ModalContent>
       <div className="overlay" onClick={onClose}></div>
-    </ModalSection>
+    </S.ModalSection>
   )
 }
 

@@ -1,6 +1,7 @@
+import { useParams } from 'react-router-dom'
+
 import HeaderRestaurante from '../../Components/HeaderRestaurante'
 import ListaRestaurante from '../../Components/ListaProdutos'
-import { useParams } from 'react-router-dom'
 import { useGetRestaurantesQuery } from '../../services/api'
 
 export type Produto = {
