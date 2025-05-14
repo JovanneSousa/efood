@@ -48,5 +48,10 @@ export const InputGroup = styled.div`
     padding: 8px;
     font-size: 14px;
     font-weight: bold;
+
+    &.error {
+      border: 1px solid red;
+      background-color: #f8d7da;
+    }
   }
 `

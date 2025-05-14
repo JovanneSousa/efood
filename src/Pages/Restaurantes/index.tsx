@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react'
 import HeaderRestaurante from '../../Components/HeaderRestaurante'
-import { Restaurante } from '../Home'
 import ListaRestaurante from '../../Components/ListaProdutos'
 import { useParams } from 'react-router-dom'
 import { useGetRestaurantesQuery } from '../../services/api'

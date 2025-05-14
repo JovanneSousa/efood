@@ -4,28 +4,42 @@ import lixeira from '../../Assets/image/lixeira.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
-import { close, remove } from '../../store/reducers/cart'
+import { close, remove, clear } from '../../store/reducers/cart'
 import { formataPreco } from '../ListaProdutos'
-import Checkout from '../Checkout'
 import { getTotalPrice } from '../../utils'
+import Checkout from '../Checkout'
+import { resetCheckout, setIspaying } from '../../store/reducers/checkout'
 
 const CartBar = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
+  const { isFinished, isPaying, orderId } = useSelector(
+    (state: RootReducer) => state.checkout
+  )
+
   const dispatch = useDispatch()
 
   const closeCart = () => {
     dispatch(close())
+    dispatch(resetCheckout())
+
+    if (orderId !== '') {
+      dispatch(clear())
+    }
   }
 
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
 
+  const completePurchase = () => {
+    dispatch(setIspaying(true))
+  }
+
   return (
     <S.CartContainer className={isOpen ? 'is-open' : ''}>
       <div className="overlay" onClick={closeCart}></div>
       <S.SideBar>
-        {/* {items.length > 0 ? (
+        {items.length > 0 && !isPaying ? (
           <>
             <S.ProductContainer>
               {items.map((item) => (
@@ -46,14 +60,15 @@ const CartBar = () => {
               <p>Valor total</p>
               <p>{formataPreco(getTotalPrice(items))}</p>
             </S.Price>
-            <Button>Continuar com a entrega</Button>
+            <Button onClick={completePurchase}>Continuar com a entrega</Button>
           </>
-        ) : (
+        ) : !isPaying ? (
           <p className="cart-message">
             Adicione itens no carrinho para prosseguir com a compra
           </p>
-        )} */}
-        <Checkout finished={true} checkoutType="delivery" />
+        ) : (
+          <Checkout finished={isFinished} />
+        )}
       </S.SideBar>
     </S.CartContainer>
   )
