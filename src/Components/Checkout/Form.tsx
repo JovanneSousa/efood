@@ -1,23 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { usePurchaseMutation } from '../../services/api'
+import InputMask from 'react-input-mask'
 
-import Button from '../Button'
 import {
   resetCheckout,
   setInDelivery,
   setIsFinished,
   setOrderId
 } from '../../store/reducers/checkout'
-
-import { InputGroup } from './styles'
+import { usePurchaseMutation } from '../../services/api'
 import { RootReducer } from '../../store'
 import { getTotalPrice } from '../../utils'
-import { formataPreco } from '../ListaProdutos'
-import { useState } from 'react'
 
-const DeliveryForm = () => {
+import { InputGroup } from './styles'
+import Button from '../Button'
+import { formataPreco } from '../../utils/'
+
+const Form = () => {
   const [purchase] = usePurchaseMutation()
   const dispatch = useDispatch()
   const { inDelivery } = useSelector((state: RootReducer) => state.checkout)
@@ -62,26 +62,26 @@ const DeliveryForm = () => {
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         ),
       cardNumber: Yup.string()
-        .min(19, 'O campo deve possuir 19 caracteres')
-        .max(19, 'O campo deve possuir 19 caracteres')
+        .transform((value) => value.replace(/\D/g, ''))
+        .length(16, 'o número do cartão deve ter 16 digitos')
         .when((value, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         ),
       cardCode: Yup.string()
-        .min(3, 'O campo deve possuir 3 caracteres')
-        .max(3, 'O campo deve possuir 3 caracteres')
+        .transform((value) => value.replace(/\D/g, ''))
+        .length(3, 'o número do cartão deve ter 3 digitos')
         .when((value, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         ),
       expiresMonth: Yup.string()
-        .min(2, 'Insira um numero válido')
-        .max(2, 'Insira um numero válido')
+        .transform((value) => value.replace(/\D/g, ''))
+        .length(2, 'o número do cartão deve ter 2 digitos')
         .when((value, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         ),
       expiresYear: Yup.string()
-        .min(2, 'Insira um numero válido')
-        .max(2, 'Insira um numero válido')
+        .transform((value) => value.replace(/\D/g, ''))
+        .length(2, 'o número do cartão deve ter 2 digitos')
         .when((value, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         )
@@ -236,48 +236,52 @@ const DeliveryForm = () => {
             <div className="flex">
               <InputGroup className="flex70">
                 <label htmlFor="cardNumber">Número do cartão</label>
-                <input
+                <InputMask
                   id="cardNumber"
                   type="text"
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                   value={form.values.cardNumber}
                   className={checkInputHasError('cardNumber') ? 'error' : ''}
+                  mask="9999 9999 9999 9999"
                 />
               </InputGroup>
               <InputGroup>
                 <label htmlFor="cardCode">CVV</label>
-                <input
+                <InputMask
                   id="cardCode"
                   type="text"
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                   value={form.values.cardCode}
                   className={checkInputHasError('cardCode') ? 'error' : ''}
+                  mask="999"
                 />
               </InputGroup>
             </div>
             <div className="flex">
               <InputGroup>
                 <label htmlFor="expiresMonth">Mês de vencimento</label>
-                <input
+                <InputMask
                   id="expiresMonth"
                   type="text"
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                   value={form.values.expiresMonth}
                   className={checkInputHasError('expiresMonth') ? 'error' : ''}
+                  mask="99"
                 />
               </InputGroup>
               <InputGroup>
                 <label htmlFor="expiresYear">Ano de vencimento</label>
-                <input
+                <InputMask
                   id="expiresYear"
                   type="text"
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
                   value={form.values.expiresYear}
                   className={checkInputHasError('expiresYear') ? 'error' : ''}
+                  mask="99"
                 />
               </InputGroup>
             </div>
@@ -302,4 +306,4 @@ const DeliveryForm = () => {
   )
 }
 
-export default DeliveryForm
+export default Form

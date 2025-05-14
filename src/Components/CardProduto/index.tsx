@@ -1,4 +1,4 @@
-import { CardContainer, DescProduto, NomeProduto } from './styles'
+import * as S from './styles'
 import Button from '../Button'
 import { useState } from 'react'
 import Modal from '../Modal'
