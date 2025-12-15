@@ -1,6 +1,6 @@
-import facebook from '../../Assets/image/Facebook.png'
-import instagram from '../../Assets/image/Instagram.png'
-import twitter from '../../Assets/image/Twitter.png'
+import facebook from '../../assets/image/Facebook.png'
+import instagram from '../../assets/image/Instagram.png'
+import twitter from '../../assets/image/Twitter.png'
 import * as S from './styles'
 import Logo from '../Logo'
 
