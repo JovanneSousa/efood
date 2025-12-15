@@ -57,31 +57,31 @@ const Form = () => {
       complement: Yup.string(),
       cardName: Yup.string()
         .min(5, 'O nome precisa ter pelo menos 5 caracteres')
-        .when((value, schema) =>
+        .when((_, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         ),
       cardNumber: Yup.string()
         .transform((value) => value.replace(/\D/g, ''))
         .length(16, 'o número do cartão deve ter 16 digitos')
-        .when((value, schema) =>
+        .when((_, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         ),
       cardCode: Yup.string()
         .transform((value) => value.replace(/\D/g, ''))
         .length(3, 'o número do cartão deve ter 3 digitos')
-        .when((value, schema) =>
+        .when((_, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         ),
       expiresMonth: Yup.string()
         .transform((value) => value.replace(/\D/g, ''))
         .length(2, 'o número do cartão deve ter 2 digitos')
-        .when((value, schema) =>
+        .when((_, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         ),
       expiresYear: Yup.string()
         .transform((value) => value.replace(/\D/g, ''))
         .length(2, 'o número do cartão deve ter 2 digitos')
-        .when((value, schema) =>
+        .when((_, schema) =>
           !inDelivery ? schema.required('O campo é obrigatório') : schema
         )
     }),
