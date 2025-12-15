@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 
+<<<<<<< HEAD
 import { type RootReducer } from '../../store'
+=======
+import { RootReducer } from '../../store'
+>>>>>>> 828af506f8053585642a2321bd619077db8a1f11
 import { close, remove, clear } from '../../store/reducers/cart'
 import { getTotalPrice, formataPreco } from '../../utils'
 import Checkout from '../Checkout'

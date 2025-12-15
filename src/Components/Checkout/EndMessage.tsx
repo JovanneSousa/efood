@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { clear, close } from '../../store/reducers/cart'
 import { resetCheckout } from '../../store/reducers/checkout'
+<<<<<<< HEAD
 import { type RootReducer } from '../../store'
+=======
+import { RootReducer } from '../../store'
+>>>>>>> 828af506f8053585642a2321bd619077db8a1f11
 
 import Button from '../Button'
 

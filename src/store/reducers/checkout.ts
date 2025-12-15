@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+=======
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+>>>>>>> 828af506f8053585642a2321bd619077db8a1f11
 
 type CheckoutState = {
   isPaying: boolean
