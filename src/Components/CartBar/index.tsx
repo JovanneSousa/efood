@@ -7,7 +7,7 @@ import Checkout from '../Checkout'
 import { resetCheckout, setIspaying } from '../../store/reducers/checkout'
 
 import Button from '../Button'
-import lixeira from '../../Assets/image/lixeira.png'
+import lixeira from '../../assets/image/lixeira.png'
 import * as S from './styles'
 
 const CartBar = () => {

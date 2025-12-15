@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import fundo from '../../Assets/image/Vector.png'
+import fundo from '../../assets/image/Vector.png'
 import { cores } from '../../GlobalStyle'
 import { Link } from 'react-router-dom'
 import { breakpoint } from '../../GlobalStyle'

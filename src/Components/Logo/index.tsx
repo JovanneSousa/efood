@@ -1,4 +1,4 @@
-import logo from '../../Assets/image/logo.png'
+import logo from '../../assets/image/logo.png'
 import { ContainerImg } from './styles'
 import { ImgLogo } from './styles'
 

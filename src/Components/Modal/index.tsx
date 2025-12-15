@@ -4,7 +4,7 @@ import { type Produto } from '../../Pages/Restaurantes'
 import { add, open } from '../../store/reducers/cart'
 
 import * as S from './styles'
-import close from '../../Assets/image/close.png'
+import close from '../../assets/image/close.png'
 
 type Props = {
   isVisible: boolean

@@ -1,4 +1,4 @@
-import star from '../../Assets/image/star.png'
+import star from '../../assets/image/star.png'
 import Tag from '../Tags'
 import * as S from './styles'
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import hero from '../../Assets/image/Vector.png'
+import hero from '../../assets/image/Vector.png'
 import { breakpoint, cores } from '../../GlobalStyle'
 
 export const Cabecalho = styled.header`
