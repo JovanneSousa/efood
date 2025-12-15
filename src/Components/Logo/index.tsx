@@ -4,7 +4,7 @@ import { ImgLogo } from './styles'
 
 const Logo = () => {
   return (
-    <ContainerImg>
+    <ContainerImg to={'/'}>
       <ImgLogo src={logo} alt="Logo efood" />
     </ContainerImg>
   )

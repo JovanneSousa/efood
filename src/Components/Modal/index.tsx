@@ -43,6 +43,7 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
             <p>serve: de {produto.porcao}</p>
 
             <S.ButtonComprar
+              className="comprar"
               onClick={() => {
                 addItem(produto)
                 deixaVisivel()

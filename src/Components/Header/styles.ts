@@ -5,7 +5,6 @@ import { breakpoint, cores } from '../../GlobalStyle'
 
 export const Cabecalho = styled.header`
   padding: 40px;
-  height: 384px;
   background-image: url(${hero});
 `
 export const ImageHeader = styled.img`
@@ -18,11 +17,25 @@ export const ImageHeader = styled.img`
 export const TituloHeader = styled.h2`
   color: ${cores.corTexto};
   text-align: center;
-  margin-top: 136px;
+  margin-top: 104px;
   font-size: 36px;
 
   @media (max-width: ${breakpoint.tablet}) {
     margin-top: 96px;
     font-size: 32px;
+  }
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 20px;
+  max-width: 350px;
+  padding: 16px;
+  margin: 0 auto;
+
+  button, a {
+    background-color: ${cores.corDeFundo};
+    font-size: 16px;
+    text-align: center;
   }
 `

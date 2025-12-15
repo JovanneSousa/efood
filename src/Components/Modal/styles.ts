@@ -89,6 +89,3 @@ export const ModalDescription = styled.div`
     }
   }
 `
-export const ButtonComprar = styled(Button)`
-  width: 218px;
-`

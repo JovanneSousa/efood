@@ -9,12 +9,14 @@ import CartBar from './Components/CartBar'
 
 import { GlobalStyle } from './GlobalStyle'
 import { store } from './store'
+import Auth from './Pages/Auth'
 
 const Rotas = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/restaurantes/:id" element={<Restaurantes />} />
+      <Route path="/login" element={<Auth />} />
     </Routes>
   )
 }

@@ -2,9 +2,11 @@ import { createGlobalStyle } from "styled-components";
 
 export const cores = {
   corTexto: "#e66767",
+  corLeveTexto: "#f19999",
   corFooter: "#FFEBD9",
   corDeFundo: "#fff8f2",
   branco: "#ffffff",
+  preto: "#000"
 };
 
 export const breakpoint = {
@@ -27,8 +29,9 @@ export const GlobalStyle = createGlobalStyle`
           background-color: ${cores.corDeFundo};
         }
 
-        body, #root {
+        body, #root, html {
           width: 100%;
+          min-height: 100vh;
         }
 
     .container {
