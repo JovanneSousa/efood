@@ -10,11 +10,7 @@ import {
   setOrderId
 } from '../../store/reducers/checkout'
 import { usePurchaseMutation } from '../../services/api'
-<<<<<<< HEAD
 import { type RootReducer } from '../../store'
-=======
-import { RootReducer } from '../../store'
->>>>>>> 828af506f8053585642a2321bd619077db8a1f11
 import { getTotalPrice, formataPreco } from '../../utils'
 
 import { InputGroup } from './styles'

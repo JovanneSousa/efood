@@ -1,6 +1,5 @@
 {
   "name": "efood",
-<<<<<<< HEAD
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,12 +11,6 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
-=======
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@reduxjs/toolkit": "^2.7.0",
->>>>>>> 828af506f8053585642a2321bd619077db8a1f11
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -33,16 +26,11 @@
     "react-input-mask": "^2.0.4",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.5.1",
-<<<<<<< HEAD
-=======
-    "react-scripts": "5.0.1",
->>>>>>> 828af506f8053585642a2321bd619077db8a1f11
     "styled-components": "^6.1.17",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "yup": "^1.6.1"
   },
-<<<<<<< HEAD
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
@@ -56,42 +44,5 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4"
-=======
-  "scripts": {
-    "start": "react-scripts start lint",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/react-input-mask": "^3.0.6",
-    "@types/styled-components": "^5.1.26",
-    "@typescript-eslint/eslint-plugin": "^5.53.0",
-    "@typescript-eslint/parser": "^5.53.0",
-    "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.8.4"
->>>>>>> 828af506f8053585642a2321bd619077db8a1f11
   }
 }

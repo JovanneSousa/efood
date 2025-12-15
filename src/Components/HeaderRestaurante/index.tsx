@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useDispatch, useSelector } from "react-redux";
 
 import { type Restaurante } from "../../Pages/Home";
@@ -21,30 +20,6 @@ const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
   const deixaVisivel = () => {
     dispatch(open());
   };
-=======
-import { useDispatch, useSelector } from 'react-redux'
-
-import { Restaurante } from '../../Pages/Home'
-import { open } from '../../store/reducers/cart'
-import { RootReducer } from '../../store'
-
-import Logo from '../Logo'
-import * as S from './styles'
-import Loader from '../Loader'
-
-type Props = {
-  tipo: string[]
-  nome: string
-  restaurante: Restaurante
-}
-
-const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
-  const { items } = useSelector((state: RootReducer) => state.cart)
-  const dispatch = useDispatch()
-  const deixaVisivel = () => {
-    dispatch(open())
-  }
->>>>>>> 828af506f8053585642a2321bd619077db8a1f11
 
   return (
     <S.BackgroundHeader>
@@ -69,12 +44,6 @@ const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
         </div>
       </S.BannerSection>
     </S.BackgroundHeader>
-<<<<<<< HEAD
   );
 };
 export default HeaderRestaurante;
-=======
-  )
-}
-export default HeaderRestaurante
->>>>>>> 828af506f8053585642a2321bd619077db8a1f11

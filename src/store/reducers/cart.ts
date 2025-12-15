@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type Produto } from '../../Pages/Restaurantes'
-=======
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Produto } from '../../Pages/Restaurantes'
->>>>>>> 828af506f8053585642a2321bd619077db8a1f11
 
 type CartState = {
   items: Produto[]
