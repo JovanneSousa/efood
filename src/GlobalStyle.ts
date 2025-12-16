@@ -1,18 +1,18 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const cores = {
-  corTexto: "#e66767",
-  corLeveTexto: "#f19999",
-  corFooter: "#FFEBD9",
-  corDeFundo: "#fff8f2",
-  branco: "#ffffff",
-  preto: "#000"
-};
+  corTexto: '#e66767',
+  corLeveTexto: '#f19999',
+  corFooter: '#FFEBD9',
+  corDeFundo: '#fff8f2',
+  branco: '#ffffff',
+  preto: '#000'
+}
 
 export const breakpoint = {
-  desktop: "1024px",
-  tablet: "768px",
-};
+  desktop: '1024px',
+  tablet: '768px'
+}
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
         text-decoration: none;
         }
-        
+
         body {
           color: ${cores.corTexto};
           background-color: ${cores.corDeFundo};
@@ -34,6 +34,11 @@ export const GlobalStyle = createGlobalStyle`
           min-height: 100vh;
         }
 
+        .shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
     .container {
     max-width: 1024px;
     margin: 0 auto;
@@ -42,4 +47,4 @@ export const GlobalStyle = createGlobalStyle`
       max-width: 80%;
     }
     }
-`;
+`

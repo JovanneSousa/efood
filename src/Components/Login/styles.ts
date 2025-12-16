@@ -1,13 +1,11 @@
 import styled from 'styled-components'
-import { cores } from '../../GlobalStyle'
+import { breakpoint, cores } from '../../GlobalStyle'
 
 export const LoginContainer = styled.div`
   max-width: 460px;
   margin: 32px auto;
   background-color: ${cores.branco};
   padding: 24px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
 
   p {
     text-align: center;
@@ -18,6 +16,11 @@ export const LoginContainer = styled.div`
       font-size: 32px;
       margin-bottom: 16px;
       color: ${cores.corTexto};
+
+      @media (max-width: ${breakpoint.tablet}) {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
     }
   }
 

@@ -22,7 +22,7 @@ const Button = ({
     <ButtonCarrinho
       {...(to ? { as: Link, to } : {})}
       disabled={disabled}
-      className={className}
+      className={`shadow ${className}`}
       type={type ? type : 'button'}
       onClick={onClick}
       padding={padding}

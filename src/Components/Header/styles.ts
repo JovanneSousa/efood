@@ -17,12 +17,10 @@ export const ImageHeader = styled.img`
 export const TituloHeader = styled.h2`
   color: ${cores.corTexto};
   text-align: center;
-  margin-top: 104px;
-  font-size: 36px;
+  margin-top: 32px;
+  font-size: 24px;
 
   @media (max-width: ${breakpoint.tablet}) {
-    margin-top: 96px;
-    font-size: 32px;
   }
 `
 
