@@ -5,6 +5,7 @@ import { add, open } from '../../store/reducers/cart'
 
 import * as S from './styles'
 import close from '../../assets/image/close.png'
+import Button from '../Button'
 
 type Props = {
   isVisible: boolean
@@ -42,7 +43,7 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
             <p>{produto.descricao}</p>
             <p>serve: de {produto.porcao}</p>
 
-            <S.ButtonComprar
+            <Button
               className="comprar"
               onClick={() => {
                 addItem(produto)
@@ -51,7 +52,7 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
               }}
             >
               {produto.preco}
-            </S.ButtonComprar>
+            </Button>
           </div>
         </S.ModalDescription>
       </S.ModalContent>

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoint, cores } from '../../GlobalStyle'
-import Button from '../Button'
 
 export const ModalSection = styled.div`
   position: fixed;
