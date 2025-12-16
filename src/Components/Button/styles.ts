@@ -18,7 +18,6 @@ export const ButtonCarrinho = styled.button.withConfig({
     padding == 'light' ? '8px' : padding == 'big' ? '8px 8px' : '4px 0'};
   margin-top: 8px;
   cursor: pointer;
-
   transition: transform 0.2s ease;
 
   &:hover {

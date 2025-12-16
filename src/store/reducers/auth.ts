@@ -64,7 +64,6 @@ export const login = createAsyncThunk<
   } catch (err: unknown) {
     if (axios.isAxiosError<ErrorPayload>(err)) {
       const data = err.response?.data.details
-      console.log(err.response?.data.details)
       if (data) return rejectWithValue(data)
     }
     return rejectWithValue('Erro ao fazer login')
