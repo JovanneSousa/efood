@@ -5,6 +5,10 @@ import type { AppDispatch } from '../../store'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+const user = import.meta.env.VITE_USERNAME
+
+const senha = import.meta.env.VITE_PASSWORD
+
 const FormLogin = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
@@ -13,8 +17,8 @@ const FormLogin = () => {
 
   const fazLogin = async (e: React.FormEvent) => {
     const data = {
-      email,
-      password
+      email: user,
+      password: senha
     }
 
     e.preventDefault()

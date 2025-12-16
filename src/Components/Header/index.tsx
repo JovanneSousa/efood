@@ -1,17 +1,13 @@
-import Button from '../Button'
 import Logo from '../Logo'
 import * as S from './styles'
-import { useSelector } from 'react-redux'
-import type { RootReducer } from '../../store'
 import type React from 'react'
+import ButtonTopContainer from '../ButtonTopContainer'
 
 interface HeaderProps {
-  noButtonLogin?: boolean
+  inLoginPage?: boolean
 }
 
-const Header: React.FC<HeaderProps> = ({ noButtonLogin = false }) => {
-  const { logged } = useSelector((state: RootReducer) => state.auth)
-
+const Header: React.FC<HeaderProps> = ({ inLoginPage = false }) => {
   return (
     <S.Cabecalho>
       <div className="container">
@@ -19,12 +15,7 @@ const Header: React.FC<HeaderProps> = ({ noButtonLogin = false }) => {
           <h1>
             <Logo />
           </h1>
-          {!logged && !noButtonLogin ? (
-            <S.ButtonContainer>
-              <Button to={'/register'} children="Registre-se" padding="big" />
-              <Button to={'/login'} children="Login" padding="big" />
-            </S.ButtonContainer>
-          ) : null}
+          <ButtonTopContainer inLoginPage={inLoginPage} />
         </div>
         <S.TituloHeader>
           Viva experiências gastronômicas <br /> no conforto de sua casa

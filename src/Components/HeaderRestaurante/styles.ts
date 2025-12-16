@@ -44,6 +44,10 @@ export const HeaderRestauranteTitulo = styled.div`
   font-weight: bold;
   padding: 48px 0 64px;
   position: relative;
+
+  &.container {
+    max-width: 1366px;
+  }
 `
 
 export const BannerSection = styled.div`

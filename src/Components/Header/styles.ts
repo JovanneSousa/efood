@@ -10,6 +10,7 @@ export const Cabecalho = styled.header`
   .nav-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 `
 export const ImageHeader = styled.img`
@@ -26,20 +27,5 @@ export const TituloHeader = styled.h2`
   font-size: 24px;
 
   @media (max-width: ${breakpoint.tablet}) {
-  }
-`
-
-export const ButtonContainer = styled.div`
-  display: flex;
-  gap: 20px;
-  align-items: center;
-
-  button, a {
-    background-color: ${cores.corDeFundo};
-    font-size: 16px;
-    text-align: center;
-    min-width: 150px;
-    align-items: center;
-    margin: 0;
   }
 `
