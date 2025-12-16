@@ -29,7 +29,6 @@ export const LoginContainer = styled.div`
       display: flex;
       flex-direction: column;
       padding: 8px 0;
-      margin-bottom: 16px;
 
       label {
         font-weight: bold;
