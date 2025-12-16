@@ -120,8 +120,8 @@ const Form = () => {
         }).unwrap()
         dispatch(setOrderId(res.orderId))
         dispatch(setIsFinished(true))
-      } catch (error) {
-        alert('Erro ao finalizar o pedido')
+      } catch (err) {
+        alert(`Erro ao finalizar o pedido ${err}`)
       }
     }
   })

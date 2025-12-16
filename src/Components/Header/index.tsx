@@ -1,21 +1,34 @@
 import Button from '../Button'
 import Logo from '../Logo'
 import * as S from './styles'
+import { useSelector } from 'react-redux'
+import type { RootReducer } from '../../store'
+import type React from 'react'
 
-const Header = () => {
+interface HeaderProps {
+  noButtonLogin?: boolean
+}
+
+const Header: React.FC<HeaderProps> = ({ noButtonLogin = false }) => {
+  const { logged } = useSelector((state: RootReducer) => state.auth)
+
   return (
     <S.Cabecalho>
       <div className="container">
-        <h1>
-          <Logo />
-        </h1>
+        <div className="nav-header">
+          <h1>
+            <Logo />
+          </h1>
+          {!logged && !noButtonLogin ? (
+            <S.ButtonContainer>
+              <Button to={'/register'} children="Registre-se" padding="big" />
+              <Button to={'/login'} children="Login" padding="big" />
+            </S.ButtonContainer>
+          ) : null}
+        </div>
         <S.TituloHeader>
           Viva experiências gastronômicas <br /> no conforto de sua casa
         </S.TituloHeader>
-        <S.ButtonContainer>
-          <Button to={'/login'} children="Login" padding="big" />
-          <Button children="Registre-se" padding="big" />
-        </S.ButtonContainer>
       </div>
     </S.Cabecalho>
   )

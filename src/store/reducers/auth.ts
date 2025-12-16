@@ -1,4 +1,8 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import {
+  createAsyncThunk,
+  createSlice,
+  type PayloadAction
+} from '@reduxjs/toolkit'
 import apiAuth from '../../services/apiAuth'
 import axios from 'axios'
 
@@ -9,7 +13,7 @@ interface ResponsePayload<T> {
 
 interface ErrorPayload {
   status: number
-  details: string
+  details: string[]
 }
 
 interface LoginResponse {
@@ -27,6 +31,18 @@ interface LoginResponse {
       ]
     }
   }
+}
+
+interface AuthState {
+  loading: boolean
+  error: string | null
+  logged: boolean
+}
+
+const initialState: AuthState = {
+  loading: false,
+  error: null,
+  logged: Boolean(localStorage.getItem('token'))
 }
 
 export const login = createAsyncThunk<
@@ -48,3 +64,51 @@ export const login = createAsyncThunk<
     return rejectWithValue('Erro ao fazer login')
   }
 })
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    const setPending = (state: AuthState) => {
+      state.loading = true
+      state.error = null
+      state.logged = false
+    }
+
+    const setRejected = (
+      state: AuthState,
+      action: ReturnType<typeof login.rejected>
+    ) => {
+      state.loading = false
+      state.error = action.payload!
+      state.logged = false;
+    }
+
+    const salvaDados = (
+      state: AuthState,
+      action: PayloadAction<ResponsePayload<LoginResponse>>
+    ) => {
+      const { token } = action.payload.data
+
+      state.loading = false
+      state.error = null
+      state.logged = true
+
+      localStorage.setItem('token', token.accessToken)
+      localStorage.setItem('user', token.userToken.name)
+      localStorage.setItem('userId', token.userToken.id)
+      localStorage.setItem(
+        'expiresIn',
+        (Date.now() + token.expiresIn * 1000).toString()
+      )
+    }
+
+    builder
+      .addCase(login.pending, setPending)
+      .addCase(login.rejected, setRejected)
+      .addCase(login.fulfilled, salvaDados)
+  }
+})
+
+export default authSlice.reducer
