@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { registerUserScheme } from '../../Validations/registerUserScheme'
-import type { RegisterFormData } from '../../store/reducers/auth'
+import { register, type RegisterFormData } from '../../store/reducers/auth'
 import { systemName } from '../../services/systemName'
 import { useDispatch, useSelector } from 'react-redux'
 import { type AppDispatch, type RootReducer } from '../../store'
@@ -26,7 +26,7 @@ const FormRegister = () => {
     const payload = {
       ...data,
       systemName,
-      profile: 'user'
+      profile: 'usuario'
     }
 
     try {

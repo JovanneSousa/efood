@@ -77,6 +77,26 @@ export const login = createAsyncThunk<
   }
 })
 
+export const register = createAsyncThunk<
+  ResponsePayload<LoginResponse>,
+  RegisterFormData,
+  { rejectValue: string }
+>('auth/register', async (credentials, { rejectWithValue }) => {
+  try {
+    const response = await apiAuth.post<ResponsePayload<LoginResponse>>(
+      `api/auth/register`,
+      credentials
+    )
+    return response.data
+  } catch (err: unknown) {
+    if (axios.isAxiosError<ErrorPayload>(err)) {
+      const data = err.response?.data.errors[0]
+      if (data) return rejectWithValue(data)
+    }
+    return rejectWithValue('Falha desconhecida ao criar usuário')
+  }
+})
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,

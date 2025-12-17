@@ -1,23 +1,27 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import Home from './Pages/Home'
-import Restaurantes from './Pages/Restaurantes'
-
 import Footer from './Components/Footer'
 import CartBar from './Components/CartBar'
 
 import { GlobalStyle } from './GlobalStyle'
 import { store } from './store'
-import Auth from './Pages/Auth'
+import { lazy, Suspense } from 'react'
+import Loader from './Components/Loader'
+
+const Auth = lazy(() => import('./Pages/Auth'))
+const Home = lazy(() => import('./Pages/Home'))
+const Restaurantes = lazy(() => import('./Pages/Restaurantes'))
 
 const Rotas = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/restaurantes/:id" element={<Restaurantes />} />
-      <Route path="/auth/:type" element={<Auth />} />
-    </Routes>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/restaurantes/:id" element={<Restaurantes />} />
+        <Route path="/auth/:type" element={<Auth />} />
+      </Routes>
+    </Suspense>
   )
 }
 
