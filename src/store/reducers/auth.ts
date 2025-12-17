@@ -6,9 +6,14 @@ import {
 import apiAuth from '../../services/apiAuth'
 import axios from 'axios'
 
-export type LoginFormData = {
+export interface LoginFormData {
   email: string
   password: string
+}
+
+export interface RegisterFormData extends LoginFormData {
+  nome: string
+  confirmPassword: string
 }
 
 interface ResponsePayload<T> {
@@ -18,7 +23,7 @@ interface ResponsePayload<T> {
 
 interface ErrorPayload {
   status: number
-  details: string
+  errors: string[]
 }
 
 interface LoginResponse {
@@ -42,12 +47,14 @@ interface AuthState {
   loading: boolean
   error: string | null
   logged: boolean
+  page: 'login' | 'register' | null
 }
 
 const initialState: AuthState = {
   loading: false,
   error: null,
-  logged: Boolean(localStorage.getItem('token'))
+  logged: Boolean(localStorage.getItem('token')),
+  page: null
 }
 
 export const login = createAsyncThunk<
@@ -63,7 +70,7 @@ export const login = createAsyncThunk<
     return response.data
   } catch (err: unknown) {
     if (axios.isAxiosError<ErrorPayload>(err)) {
-      const data = err.response?.data.details
+      const data = err.response?.data.errors[0]
       if (data) return rejectWithValue(data)
     }
     return rejectWithValue('Erro ao fazer login')

@@ -6,6 +6,7 @@ import { loginSchema } from '../../Validations/loginScheme'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import type { AppDispatch, RootReducer } from '../../store'
+import { systemName } from '../../services/systemName'
 
 const user = import.meta.env.VITE_USERNAME
 
@@ -18,16 +19,32 @@ const FormLogin = () => {
 
   const {
     register: loginInput,
-    handleSubmit,
+    // handleSubmit,
     reset,
     formState: { errors }
   } = useForm<LoginFormData>({
     resolver: yupResolver(loginSchema)
   })
 
-  const onSubmit = async (data: LoginFormData) => {
+  // const onSubmit = async (data: LoginFormData) => {
+  //   try {
+  //     await dispatch(login(data)).unwrap()
+  //     reset()
+  //     navigate('/')
+  //   } catch {
+  //     //erro tratado no slice (auth.error)
+  //   }
+  // }
+
+  const onSubmitTest = async () => {
     try {
-      await dispatch(login(data)).unwrap()
+      const payload = {
+        email: user,
+        password: senha,
+        system: systemName
+      }
+
+      await dispatch(login(payload)).unwrap()
       reset()
       navigate('/')
     } catch {
@@ -36,7 +53,7 @@ const FormLogin = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={onSubmitTest}>
       <div className="input-wrapper">
         <label htmlFor="email">Email</label>
         <input

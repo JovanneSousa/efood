@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { breakpoint, cores } from '../../GlobalStyle'
 
-export const LoginContainer = styled.div`
+export const FormContainer = styled.div`
   max-width: 460px;
   margin: 32px auto;
   background-color: ${cores.branco};
