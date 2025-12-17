@@ -25,7 +25,7 @@ const FormRegister = () => {
   const onSubmit = async (data: RegisterFormData) => {
     const payload = {
       ...data,
-      systemName,
+      system: systemName,
       profile: 'usuario'
     }
 
@@ -42,7 +42,7 @@ const FormRegister = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="input-wrapper">
         <label htmlFor="name">Nome</label>
-        <input type="email" id="name" {...registerInput('nome')} />
+        <input type="text" id="name" {...registerInput('nome')} />
         <span>{errors.email?.message}</span>
       </div>
       <div className="input-wrapper">

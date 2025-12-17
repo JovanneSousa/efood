@@ -84,7 +84,7 @@ export const register = createAsyncThunk<
 >('auth/register', async (credentials, { rejectWithValue }) => {
   try {
     const response = await apiAuth.post<ResponsePayload<LoginResponse>>(
-      `api/auth/register`,
+      `api/auth/registrar`,
       credentials
     )
     return response.data
