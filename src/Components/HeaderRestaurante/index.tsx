@@ -1,7 +1,4 @@
-import { useDispatch } from 'react-redux'
-
 import { type Restaurante } from '../../Pages/Home'
-import { open } from '../../store/reducers/cart'
 
 import Logo from '../Logo'
 import * as S from './styles'
@@ -15,11 +12,6 @@ type Props = {
 }
 
 const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
-  const dispatch = useDispatch()
-  const deixaVisivel = () => {
-    dispatch(open())
-  }
-
   return (
     <S.BackgroundHeader>
       <S.HeaderRestauranteTitulo className="container">
@@ -30,7 +22,7 @@ const HeaderRestaurante = ({ nome, tipo, restaurante }: Props) => {
           <Logo />
         </S.ContainersHeader>
         <S.ContainersHeader>
-          <ButtonTopContainer onClick={deixaVisivel} />
+          <ButtonTopContainer />
         </S.ContainersHeader>
       </S.HeaderRestauranteTitulo>
       {!restaurante ? <Loader /> : undefined}

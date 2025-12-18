@@ -103,11 +103,10 @@ const authSlice = createSlice({
   reducers: {
     logout() {
       localStorage.clear()
+      return initialState
     },
     resetState() {
-      console.log("Chamou a função")
-      console.log(initialState)
-      return initialState;
+      return initialState
     }
   },
   extraReducers: (builder) => {

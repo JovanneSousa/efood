@@ -6,15 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
 import { logout, resetState } from '../../store/reducers/auth'
 import { useParams } from 'react-router-dom'
+import { open } from '../../store/reducers/cart'
 
 interface ButtonContainerProps {
   inLoginPage?: boolean
-  onClick?: () => void
 }
 
 const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
   inLoginPage,
-  onClick
 }) => {
   const { logged } = useSelector((state: RootReducer) => state.auth)
   const { items } = useSelector((state: RootReducer) => state.cart)
@@ -24,7 +23,7 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
   if (logged)
     return (
       <ButtonContainer>
-        <div onClick={onClick} className="cart-wrapper pointer">
+        <div onClick={() => dispatch(open())} className="cart-wrapper pointer">
           <FontAwesomeIcon icon={faCartShopping} />
 
           {items.length > 0 && (
@@ -48,13 +47,11 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
             className="pointer register"
             to="/auth/register"
             children="Registre-se"
-            onClick={() => dispatch(resetState())}
             padding="big"
           />
           <Button
             className="pointer"
             to="/auth/login"
-            onClick={() => dispatch(resetState())}
             children="Login"
             padding="big"
           />
@@ -62,13 +59,23 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
       )}
 
       {inLoginPage && page == 'login' && (
-        <Button className="pointer" to="/auth/register" padding="big">
+        <Button
+          className="pointer"
+          onClick={() => dispatch(resetState())}
+          to="/auth/register"
+          padding="big"
+        >
           Registre-se
         </Button>
       )}
 
       {inLoginPage && page == 'register' && (
-        <Button className="pointer" to="/auth/login" padding="big">
+        <Button
+          className="pointer"
+          onClick={() => dispatch(resetState())}
+          to="/auth/login"
+          padding="big"
+        >
           Login
         </Button>
       )}

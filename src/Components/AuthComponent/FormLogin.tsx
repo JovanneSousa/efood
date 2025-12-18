@@ -8,9 +8,9 @@ import { useForm } from 'react-hook-form'
 import type { AppDispatch, RootReducer } from '../../store'
 import { systemName } from '../../services/systemName'
 
-// const user = import.meta.env.VITE_USERNAME
+const user = import.meta.env.VITE_USERNAME
 
-// const senha = import.meta.env.VITE_PASSWORD
+const senha = import.meta.env.VITE_PASSWORD
 
 const FormLogin = () => {
   const navigate = useNavigate()
@@ -40,21 +40,21 @@ const FormLogin = () => {
     }
   }
 
-  // const onSubmitTest = async () => {
-  //   try {
-  //     const payload = {
-  //       email: user,
-  //       password: senha,
-  //       system: systemName
-  //     }
+  const onSubmitTest = async () => {
+    try {
+      const payload = {
+        email: user,
+        password: senha,
+        system: systemName
+      }
 
-  //     await dispatch(login(payload)).unwrap()
-  //     reset()
-  //     navigate('/')
-  //   } catch {
-  //     //erro tratado no slice (auth.error)
-  //   }
-  // }
+      await dispatch(login(payload)).unwrap()
+      reset()
+      navigate('/')
+    } catch {
+      //erro tratado no slice (auth.error)
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
