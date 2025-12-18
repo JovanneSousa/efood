@@ -4,16 +4,18 @@ import { type AppDispatch, type RootReducer } from '../../store'
 import Button from '../Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
-import { logout, resetState } from '../../store/reducers/auth'
+import { resetState } from '../../store/reducers/auth'
 import { useParams } from 'react-router-dom'
 import { open } from '../../store/reducers/cart'
 
 interface ButtonContainerProps {
   inLoginPage?: boolean
+  detailProfile: () => void
 }
 
 const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
   inLoginPage,
+  detailProfile
 }) => {
   const { logged } = useSelector((state: RootReducer) => state.auth)
   const { items } = useSelector((state: RootReducer) => state.cart)
@@ -31,7 +33,7 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
           )}
         </div>
         <FontAwesomeIcon
-          onClick={() => dispatch(logout())}
+          to={'/user'}
           className="pointer"
           icon={faUser}
           size="lg"

@@ -27,7 +27,10 @@ const cartSlice = createSlice({
       state.items = state.items.filter((item) => item.id !== action.payload)
     },
     open: (state) => {
+      console.log("abriu")
+
       state.isOpen = true
+      console.log(state.isOpen)
     },
     close: (state) => {
       state.isOpen = false

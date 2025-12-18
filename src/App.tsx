@@ -8,6 +8,7 @@ import { GlobalStyle } from './GlobalStyle'
 import { store } from './store'
 import { lazy, Suspense } from 'react'
 import Loader from './Components/Loader'
+import SidebarModal from './Components/SidebarModal'
 
 const Auth = lazy(() => import('./Pages/Auth'))
 const Home = lazy(() => import('./Pages/Home'))
@@ -32,7 +33,7 @@ function App() {
         <GlobalStyle />
         <Rotas />
         <Footer />
-        <CartBar />
+        <SidebarModal />
       </BrowserRouter>
     </Provider>
   )
