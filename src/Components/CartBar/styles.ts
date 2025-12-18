@@ -1,47 +1,5 @@
 import styled from 'styled-components'
-import { breakpoint, cores } from '../../GlobalStyle'
-
-export const CartContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-
-  .overlay {
-    background-color: #000;
-    opacity: 0.8;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-
-  &.is-open {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .cart-message {
-    color: ${cores.branco};
-    font-size: 14px;
-    line-height: 22px;
-    text-align: center;
-    padding: 8px;
-  }
-`
-
-export const SideBar = styled.aside`
-  background-color: ${cores.corTexto};
-  max-width: 360px;
-  width: 100%;
-  padding: 8px;
-  z-index: 1;
-
-  @media (max-width: ${breakpoint.tablet}) {
-    max-width: 80vw;
-  }
-`
+import { cores } from '../../GlobalStyle'
 
 export const ProductContainer = styled.div`
   max-height: 80vh;
