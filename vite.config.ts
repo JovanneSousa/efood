@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
@@ -9,9 +8,11 @@ export default defineConfig({
       output: {
         manualChunks: {
           react: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          redux: ['react-redux', '@reduxjs/toolkit'],
-          icons: ['@fortawesome/react-fontawesome']
+          redux: ['@reduxjs/toolkit', 'react-redux'],
+          fontawesome: [
+            '@fortawesome/react-fontawesome',
+            '@fortawesome/free-solid-svg-icons'
+          ]
         }
       }
     }

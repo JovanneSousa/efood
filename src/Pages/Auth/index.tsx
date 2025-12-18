@@ -8,6 +8,7 @@ const Auth = () => {
 
   if (type !== 'login' && type !== 'register')
     return <Navigate to={'/auth/login'} />
+    
   return (
     <>
       <Header inLoginPage={true} />
