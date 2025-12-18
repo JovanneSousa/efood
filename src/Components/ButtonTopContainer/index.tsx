@@ -4,7 +4,7 @@ import { type AppDispatch, type RootReducer } from '../../store'
 import Button from '../Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
-import { logout } from '../../store/reducers/auth'
+import { logout, resetState } from '../../store/reducers/auth'
 import { useParams } from 'react-router-dom'
 
 interface ButtonContainerProps {
@@ -45,14 +45,16 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
       {!inLoginPage && (
         <>
           <Button
-            className="pointer"
+            className="pointer register"
             to="/auth/register"
             children="Registre-se"
+            onClick={() => dispatch(resetState())}
             padding="big"
           />
           <Button
             className="pointer"
             to="/auth/login"
+            onClick={() => dispatch(resetState())}
             children="Login"
             padding="big"
           />

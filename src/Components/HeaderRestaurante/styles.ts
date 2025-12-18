@@ -25,7 +25,6 @@ export const ContainersHeader = styled.div`
   }
 
   @media (max-width: ${breakpoint.tablet}) {
-    text-align: center;
     font-size: 14px;
     span {
       font-size: 12px;
@@ -44,10 +43,6 @@ export const HeaderRestauranteTitulo = styled.div`
   font-weight: bold;
   padding: 48px 0 64px;
   position: relative;
-
-  &.container {
-    max-width: 1366px;
-  }
 `
 
 export const BannerSection = styled.div`

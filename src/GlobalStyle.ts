@@ -44,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
 
     @media (max-width: ${breakpoint.tablet}) {
-      max-width: 80%;
+      max-width: 90%;
     }
     }
 `

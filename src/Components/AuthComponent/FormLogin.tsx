@@ -19,22 +19,26 @@ const FormLogin = () => {
 
   const {
     register: loginInput,
-    // handleSubmit,
+    handleSubmit,
     reset,
     formState: { errors }
   } = useForm<LoginFormData>({
     resolver: yupResolver(loginSchema)
   })
 
-  // const onSubmit = async (data: LoginFormData) => {
-  //   try {
-  //     await dispatch(login(data)).unwrap()
-  //     reset()
-  //     navigate('/')
-  //   } catch {
-  //     //erro tratado no slice (auth.error)
-  //   }
-  // }
+  const onSubmit = async (data: LoginFormData) => {
+    try {
+      const payload = {
+        ...data,
+        system: systemName
+      }
+      await dispatch(login(payload)).unwrap()
+      reset()
+      navigate('/')
+    } catch {
+      //erro tratado no slice (auth.error)
+    }
+  }
 
   const onSubmitTest = async () => {
     try {
@@ -53,7 +57,7 @@ const FormLogin = () => {
   }
 
   return (
-    <form onSubmit={onSubmitTest}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="input-wrapper">
         <label htmlFor="email">Email</label>
         <input

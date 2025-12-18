@@ -1,11 +1,17 @@
 import styled from "styled-components";
-import { cores } from "../../GlobalStyle";
+import { breakpoint, cores } from "../../GlobalStyle";
 
 export const ButtonContainer = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
   justify-content: flex-end;
+
+  .register {
+    @media (max-width: ${breakpoint.tablet}) {
+      display: none;
+    }
+  }
 
   .pointer {
     cursor: pointer;

@@ -103,6 +103,11 @@ const authSlice = createSlice({
   reducers: {
     logout() {
       localStorage.clear()
+    },
+    resetState() {
+      console.log("Chamou a função")
+      console.log(initialState)
+      return initialState;
     }
   },
   extraReducers: (builder) => {
@@ -144,8 +149,12 @@ const authSlice = createSlice({
       .addCase(login.pending, setPending)
       .addCase(login.rejected, setRejected)
       .addCase(login.fulfilled, salvaDados)
+
+      .addCase(register.pending, setPending)
+      .addCase(register.rejected, setRejected)
+      .addCase(register.fulfilled, salvaDados)
   }
 })
 
-export const { logout } = authSlice.actions
+export const { logout, resetState } = authSlice.actions
 export default authSlice.reducer

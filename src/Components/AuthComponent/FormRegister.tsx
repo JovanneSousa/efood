@@ -58,7 +58,7 @@ const FormRegister = () => {
       <div className="input-wrapper">
         <label htmlFor="password">Senha</label>
         <input type="password" {...registerInput('password')} id="password" />
-        <span>{errors.password?.message || error}</span>
+        <span>{errors.password?.message}</span>
       </div>
       <div className="input-wrapper">
         <label htmlFor="confirmPassword">Confirme a senha</label>

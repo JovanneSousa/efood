@@ -12,6 +12,10 @@ export const Cabecalho = styled.header`
     justify-content: space-between;
     align-items: center;
   }
+
+  @media (max-width: ${breakpoint.tablet}) {
+    padding: 40px 0;
+  }
 `
 export const ImageHeader = styled.img`
   width: 126px;
