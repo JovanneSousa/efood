@@ -6,7 +6,7 @@ const Rotas = () => {
   const Auth = lazy(() => import('./Pages/Auth'))
   const Home = lazy(() => import('./Pages/Home'))
   const Restaurantes = lazy(() => import('./Pages/Restaurantes'))
-  const Profile = lazy(() => import('./Components/Profile'))
+  const ProfilePage = lazy(() => import('./Pages/ProfilePage'))
   const DefaultLayout = lazy(() => import('./Layouts/DefaultLayout'))
   const RestauranteLayout = lazy(() => import('./Layouts/RestauranteLayout'))
 
@@ -15,7 +15,7 @@ const Rotas = () => {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route path="/auth/:type" element={<Auth />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/" element={<Home />} />
           <Route path="/restaurantes/novo" />
         </Route>

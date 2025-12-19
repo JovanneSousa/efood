@@ -5,6 +5,8 @@ export const cores = {
   corLeveTexto: '#f19999',
   corFooter: '#FFEBD9',
   corDeFundo: '#fff8f2',
+  corDeFundoEscura: '#fff1e6',
+  corLeveDeFundo: '#fffdfb',
   branco: '#ffffff',
   preto: '#000'
 }
@@ -29,9 +31,17 @@ export const GlobalStyle = createGlobalStyle`
           background-color: ${cores.corDeFundo};
         }
 
+        .layout-profile {
+          background-color: ${cores.corDeFundoEscura};
+        }
+
         body, #root, html {
           width: 100%;
           min-height: 100vh;
+        }
+
+        .page-content {
+          padding: 80px 0;
         }
 
         .shadow {

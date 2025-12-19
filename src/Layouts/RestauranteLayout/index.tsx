@@ -19,7 +19,9 @@ const RestauranteLayout = () => {
         nome={restaurante.titulo}
         tipo={restaurante.tipo}
       />
-      <Outlet />
+      <div className="page-content">
+        <Outlet />
+      </div>
       <Footer />
       <SidebarModal />
     </>

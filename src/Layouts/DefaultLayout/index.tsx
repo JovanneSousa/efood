@@ -7,7 +7,9 @@ const DefaultLayout = () => {
   return (
     <>
       <Header variant="default" />
-      <Outlet />
+      <div className="page-content">
+        <Outlet />
+      </div>
       <Footer />
       <SidebarModal />
     </>
