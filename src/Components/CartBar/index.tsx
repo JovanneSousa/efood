@@ -11,7 +11,7 @@ import lixeira from '../../assets/image/lixeira.png'
 import * as S from './styles'
 
 const CartBar = () => {
-  const { items, isOpen } = useSelector((state: RootReducer) => state.cart)
+  const { items } = useSelector((state: RootReducer) => state.cart)
   const { isFinished, isPaying } = useSelector(
     (state: RootReducer) => state.checkout
   )
@@ -25,35 +25,33 @@ const CartBar = () => {
   const completePurchase = () => {
     dispatch(setIspaying(true))
   }
-
-  if (isOpen)
-    return items.length > 0 && !isPaying ? (
-      <>
-        <S.ProductContainer>
-          {items.map((item) => (
-            <S.Produto key={item.id}>
-              <img src={item.foto} alt={item.nome} />
-              <div>
-                <h4>{item.nome}</h4>
-                <p>{formataPreco(item.preco)}</p>
-                <S.Trash src={lixeira} onClick={() => removeItem(item.id)} />
-              </div>
-            </S.Produto>
-          ))}
-        </S.ProductContainer>
-        <S.Price>
-          <p>Valor total</p>
-          <p>{formataPreco(getTotalPrice(items))}</p>
-        </S.Price>
-        <Button onClick={completePurchase}>Continuar com a entrega</Button>
-      </>
-    ) : !isPaying && isOpen ? (
-      <p className="cart-message">
-        Adicione itens no carrinho para prosseguir com a compra
-      </p>
-    ) : (
-      <Checkout finished={isFinished} />
-    )
+  return items.length > 0 && !isPaying ? (
+    <>
+      <S.ProductContainer>
+        {items.map((item) => (
+          <S.Produto key={item.id}>
+            <img src={item.foto} alt={item.nome} />
+            <div>
+              <h4>{item.nome}</h4>
+              <p>{formataPreco(item.preco)}</p>
+              <S.Trash src={lixeira} onClick={() => removeItem(item.id)} />
+            </div>
+          </S.Produto>
+        ))}
+      </S.ProductContainer>
+      <S.Price>
+        <p>Valor total</p>
+        <p>{formataPreco(getTotalPrice(items))}</p>
+      </S.Price>
+      <Button onClick={completePurchase}>Continuar com a entrega</Button>
+    </>
+  ) : !isPaying ? (
+    <p className="cart-message">
+      Adicione itens no carrinho para prosseguir com a compra
+    </p>
+  ) : (
+    <Checkout finished={isFinished} />
+  )
 }
 
 export default CartBar

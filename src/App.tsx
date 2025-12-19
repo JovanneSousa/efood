@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import Footer from './Components/Footer'
-import CartBar from './Components/CartBar'
 
 import { GlobalStyle } from './GlobalStyle'
 import { store } from './store'
@@ -33,7 +32,7 @@ function App() {
         <GlobalStyle />
         <Rotas />
         <Footer />
-        <SidebarModal />
+        <SidebarModal  />
       </BrowserRouter>
     </Provider>
   )

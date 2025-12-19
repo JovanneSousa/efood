@@ -4,18 +4,16 @@ import { type AppDispatch, type RootReducer } from '../../store'
 import Button from '../Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons'
-import { resetState } from '../../store/reducers/auth'
+import { resetAuthState } from '../../store/reducers/auth'
 import { useParams } from 'react-router-dom'
-import { open } from '../../store/reducers/cart'
+import { openSideBar } from '../../store/reducers/sideModal'
 
 interface ButtonContainerProps {
   inLoginPage?: boolean
-  detailProfile: () => void
 }
 
 const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
-  inLoginPage,
-  detailProfile
+  inLoginPage
 }) => {
   const { logged } = useSelector((state: RootReducer) => state.auth)
   const { items } = useSelector((state: RootReducer) => state.cart)
@@ -25,7 +23,10 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
   if (logged)
     return (
       <ButtonContainer>
-        <div onClick={() => dispatch(open())} className="cart-wrapper pointer">
+        <div
+          onClick={() => dispatch(openSideBar('cart'))}
+          className="cart-wrapper pointer"
+        >
           <FontAwesomeIcon icon={faCartShopping} />
 
           {items.length > 0 && (
@@ -33,8 +34,8 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
           )}
         </div>
         <FontAwesomeIcon
-          to={'/user'}
           className="pointer"
+          onClick={() => dispatch(openSideBar('profile'))}
           icon={faUser}
           size="lg"
         />
@@ -63,7 +64,7 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
       {inLoginPage && page == 'login' && (
         <Button
           className="pointer"
-          onClick={() => dispatch(resetState())}
+          onClick={() => dispatch(resetAuthState())}
           to="/auth/register"
           padding="big"
         >
@@ -74,7 +75,7 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
       {inLoginPage && page == 'register' && (
         <Button
           className="pointer"
-          onClick={() => dispatch(resetState())}
+          onClick={() => dispatch(resetAuthState())}
           to="/auth/login"
           padding="big"
         >

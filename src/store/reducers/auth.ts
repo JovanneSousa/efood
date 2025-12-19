@@ -105,7 +105,7 @@ const authSlice = createSlice({
       localStorage.clear()
       return initialState
     },
-    resetState() {
+    resetAuthState() {
       return initialState
     }
   },
@@ -155,5 +155,5 @@ const authSlice = createSlice({
   }
 })
 
-export const { logout, resetState } = authSlice.actions
+export const { logout, resetAuthState } = authSlice.actions
 export default authSlice.reducer

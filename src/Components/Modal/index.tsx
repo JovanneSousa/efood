@@ -1,11 +1,12 @@
 import { useDispatch } from 'react-redux'
 
 import { type Produto } from '../../Pages/Restaurantes'
-import { add, open } from '../../store/reducers/cart'
+import { add } from '../../store/reducers/cart'
 
 import * as S from './styles'
 import close from '../../assets/image/close.png'
 import Button from '../Button'
+import { openSideBar } from '../../store/reducers/sideModal'
 
 type Props = {
   isVisible: boolean
@@ -17,7 +18,7 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
   const dispatch = useDispatch()
 
   const deixaVisivel = () => {
-    dispatch(open())
+    dispatch(openSideBar('cart'))
   }
 
   const addItem = (produto: Produto) => {

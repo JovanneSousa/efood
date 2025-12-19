@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { clear, close } from '../../store/reducers/cart'
+import { clear } from '../../store/reducers/cart'
 import { resetCheckout } from '../../store/reducers/checkout'
 import { type RootReducer } from '../../store'
 
 import Button from '../Button'
+import { closeSidebar } from '../../store/reducers/sideModal'
 
 const EndMessage = () => {
   const { orderId } = useSelector((state: RootReducer) => state.checkout)
@@ -12,7 +13,7 @@ const EndMessage = () => {
   const dispatch = useDispatch()
   const clearCart = () => {
     dispatch(clear())
-    dispatch(close())
+    dispatch(closeSidebar())
     dispatch(resetCheckout())
   }
 
