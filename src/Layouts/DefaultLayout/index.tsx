@@ -3,7 +3,7 @@ import Footer from '../../Components/Footer'
 import Header from '../../Components/Header'
 import SidebarModal from '../../Components/SidebarModal'
 
-export const DefaultLayout = () => {
+const DefaultLayout = () => {
   return (
     <>
       <Header variant="default" />
@@ -13,3 +13,4 @@ export const DefaultLayout = () => {
     </>
   )
 }
+export default DefaultLayout
