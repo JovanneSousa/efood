@@ -8,13 +8,7 @@ import { resetAuthState } from '../../store/reducers/auth'
 import { useParams } from 'react-router-dom'
 import { openSideBar } from '../../store/reducers/sideModal'
 
-interface ButtonContainerProps {
-  inLoginPage?: boolean
-}
-
-const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
-  inLoginPage
-}) => {
+const ButtonTopContainer = () => {
   const { logged } = useSelector((state: RootReducer) => state.auth)
   const { items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch<AppDispatch>()
@@ -44,7 +38,7 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
 
   return (
     <ButtonContainer>
-      {!inLoginPage && (
+      {page == null && (
         <>
           <Button
             className="pointer register"
@@ -61,7 +55,7 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
         </>
       )}
 
-      {inLoginPage && page == 'login' && (
+      {page == 'login' && (
         <Button
           className="pointer"
           onClick={() => dispatch(resetAuthState())}
@@ -72,7 +66,7 @@ const ButtonTopContainer: React.FC<ButtonContainerProps> = ({
         </Button>
       )}
 
-      {inLoginPage && page == 'register' && (
+      {page == 'register' && (
         <Button
           className="pointer"
           onClick={() => dispatch(resetAuthState())}

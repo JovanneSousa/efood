@@ -17,10 +17,9 @@ const UiSlice = createSlice({
   initialState,
   reducers: {
     openSideBar: (state, action: PayloadAction<SidebarType>) => {
+      if (state.sidebarOpen && state.sidebarType === action.payload) return
       state.sidebarOpen = true
       state.sidebarType = action.payload
-      console.log(state.sidebarOpen)
-      console.log(state.sidebarType)
     },
     closeSidebar: () => initialState
   }

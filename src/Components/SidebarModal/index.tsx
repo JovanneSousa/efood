@@ -5,6 +5,7 @@ import type { RootReducer } from '../../store'
 import { clear } from '../../store/reducers/cart'
 import { resetCheckout } from '../../store/reducers/checkout'
 import { closeSidebar } from '../../store/reducers/sideModal'
+import ProfileSide from '../ProfileSide'
 
 const SidebarModal = () => {
   const dispatch = useDispatch()
@@ -28,7 +29,10 @@ const SidebarModal = () => {
       className={sidebarOpen ? 'is-open' : ''}
     >
       <div className="overlay" />
-      <Side>{sidebarType == 'cart' ? <CartBar /> : null}</Side>
+      <Side onClick={(e) => e.stopPropagation()}>
+        {sidebarType == 'cart' && <CartBar />}
+        {sidebarType == 'profile' && <ProfileSide />}
+      </Side>
     </SidebarModalSection>
   )
 }

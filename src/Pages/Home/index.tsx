@@ -1,4 +1,3 @@
-import Header from '../../Components/Header'
 import RestauranteList from '../../Components/RestauranteList'
 
 export type Restaurante = {
@@ -13,12 +12,7 @@ export type Restaurante = {
 }
 
 const Home = () => {
-  return (
-    <>
-      <Header />
-      <RestauranteList />
-    </>
-  )
+  return <RestauranteList />
 }
 
 export default Home

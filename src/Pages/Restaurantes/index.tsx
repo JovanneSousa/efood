@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom'
 
-import HeaderRestaurante from '../../Components/HeaderRestaurante'
 import ListaRestaurante from '../../Components/ListaProdutos'
 import { useGetRestaurantesQuery } from '../../services/api'
 import Loader from '../../Components/Loader'
@@ -23,15 +22,6 @@ const Restaurantes = () => {
   if (!restaurante) {
     return <Loader />
   }
-  return (
-    <div>
-      <HeaderRestaurante
-        restaurante={restaurante}
-        tipo={restaurante.tipo}
-        nome={restaurante.titulo}
-      />
-      <ListaRestaurante produtos={restaurante.cardapio} />
-    </div>
-  )
+  return <ListaRestaurante produtos={restaurante.cardapio} />
 }
 export default Restaurantes
