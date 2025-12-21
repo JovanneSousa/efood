@@ -7,6 +7,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string
   padding?: 'light' | 'big'
   to?: string
+  price?: number
 }
 
 const Button = ({
@@ -16,8 +17,13 @@ const Button = ({
   disabled,
   type,
   padding,
-  to
+  to,
+  price
 }: Props) => {
+  const content = price
+    ? `Adicionar ao carrinho - ${formataPreco(price)}`
+    : children
+
   return (
     <ButtonCarrinho
       {...(to ? { as: Link, to } : {})}
@@ -27,11 +33,7 @@ const Button = ({
       onClick={onClick}
       padding={padding}
     >
-      {typeof children === 'number'
-        ? `Adicionar ao carrinho - ${formataPreco(children)}`
-        : typeof children === 'string'
-        ? children
-        : 'Adicionar ao carrinho'}
+      {content}
     </ButtonCarrinho>
   )
 }

@@ -51,9 +51,8 @@ const Modal = ({ isVisible, onClose, produto }: Props) => {
                 deixaVisivel()
                 onClose()
               }}
-            >
-              {produto.preco}
-            </Button>
+              price={produto.preco}
+            />
           </div>
         </S.ModalDescription>
       </S.ModalContent>

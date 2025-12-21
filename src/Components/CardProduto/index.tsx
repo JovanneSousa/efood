@@ -69,7 +69,9 @@ const CardProduto = ({ descricao, image, nome, id, porcao, preco }: Props) => {
               selecionarProduto()
               deixaVisivel()
             }}
-          />
+          >
+            Adicionar ao Carrinho
+          </Button>
         </div>
       </S.CardContainer>
     </>

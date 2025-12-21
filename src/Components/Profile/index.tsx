@@ -15,7 +15,6 @@ const Profile = () => {
   if (!restaurantes) return <Loader />
 
   const restaurante = restaurantes[0]
-  console.log(restaurante)
 
   return (
     <ProfileContainer>
