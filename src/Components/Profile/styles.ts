@@ -40,15 +40,26 @@ export const ProfileContainer = styled.section`
     gap: 20px;
 
     .grid-item {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     .title {
       display: flex;
-      gap: 20px;
       font-weight: bold;
+      align-items: center;
+      justify-content: space-between;
+
+      div {
+        display: flex;
+        gap: 20px;
+      }
+
+      button {
+        max-width: 72px;
+        margin: 0px;
+      }
     }
 
     > div {
@@ -66,6 +77,14 @@ export const AddressContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-height: 530px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  border-top: 1px solid ${cores.corTexto};
+  border-bottom: 1px solid ${cores.corTexto};
+  scrollbar-color: ${cores.corTexto} ${cores.corDeFundo};
 
   .card-address {
     padding: 16px;

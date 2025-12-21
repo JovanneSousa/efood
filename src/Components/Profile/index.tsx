@@ -1,12 +1,21 @@
 import { AddressContainer, ProfileContainer } from './styles'
 import useBodyClass from '../../Hooks/useBodyClass'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faShop } from '@fortawesome/free-solid-svg-icons'
 import Button from '../Button'
+import CardRestaurante from '../CardRestaurante'
+import { useGetRestaurantesQuery } from '../../services/api'
+import Loader from '../Loader'
 
 const Profile = () => {
   // altera a cor do body com base na classe
   useBodyClass('layout-profile')
+  const { data: restaurantes } = useGetRestaurantesQuery()
+
+  if (!restaurantes) return <Loader />
+
+  const restaurante = restaurantes[0]
+  console.log(restaurante)
 
   return (
     <ProfileContainer>
@@ -24,8 +33,13 @@ const Profile = () => {
         <div className="grid">
           <div className="grid-item">
             <div className="title">
-              <FontAwesomeIcon icon={faLocationDot} />
-              <p>Meus Endereços</p>
+              <div>
+                <FontAwesomeIcon icon={faLocationDot} />
+                <p>Meus Endereços</p>
+              </div>
+              <Button className="red" padding="big">
+                + Novo
+              </Button>
             </div>
             <AddressContainer>
               <div className="card-address">
@@ -53,10 +67,45 @@ const Profile = () => {
                 <p>Centro - Gotham</p>
                 <p>00000-001</p>
               </div>
-              <Button className='red' padding='big' >+ Adicionar Endereço</Button>
             </AddressContainer>
           </div>
-          <div className="grid-item">conteudo2</div>
+          <div className="grid-item">
+            <div className="title">
+              <div className="div">
+                <FontAwesomeIcon icon={faShop} />
+                <p>Meus Estabelecimentos</p>
+              </div>
+              <Button className="red" padding="big">
+                + Novo
+              </Button>
+            </div>
+            <AddressContainer>
+              <CardRestaurante
+                variant="profile"
+                categoria={restaurante.tipo}
+                id={restaurante.id}
+                image={restaurante.capa}
+                nome={restaurante.titulo}
+                nota={restaurante.avaliacao}
+              />
+              <CardRestaurante
+                variant="profile"
+                categoria={restaurante.tipo}
+                id={restaurante.id}
+                image={restaurante.capa}
+                nome={restaurante.titulo}
+                nota={restaurante.avaliacao}
+              />
+              <CardRestaurante
+                variant="profile"
+                categoria={restaurante.tipo}
+                id={restaurante.id}
+                image={restaurante.capa}
+                nome={restaurante.titulo}
+                nota={restaurante.avaliacao}
+              />
+            </AddressContainer>
+          </div>
         </div>
       </div>
     </ProfileContainer>

@@ -1,16 +1,23 @@
 import styled from 'styled-components'
 import { cores } from '../../GlobalStyle'
-import { Link } from 'react-router-dom'
 
-export const CardRestauranteItem = styled.div`
-  border: 1px solid ${cores.corTexto};
-  height: 398px;
+interface CardRestauranteItemProps {
+  variant: 'profile' | 'default'
+}
+
+export const CardRestauranteItem = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['variant'].includes(prop)
+})<CardRestauranteItemProps>`
+  border: ${({ variant }) =>
+    variant == 'default' ? `1px solid ${cores.corTexto}` : 'none'};
+  height: 100%;
+  max-height: ${({ variant }) => (variant == 'default' ? '398px' : '')};
   position: relative;
 
   > img {
     max-width: 472px;
     width: 100%;
-    height: 215px;
+    max-height: ${({ variant }) => (variant == 'default' ? '215px' : '128px')};
     object-fit: cover;
   }
 `
@@ -27,17 +34,29 @@ export const TextDescRestaurante = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
 `
-export const TituloRestaurante = styled.div`
+export const TituloRestaurante = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['variant'].includes(prop)
+})<CardRestauranteItemProps>`
   display: flex;
+  flex-direction: ${({ variant }) => (variant == 'profile' ? 'column' : '')};
+
   justify-content: space-between;
-  padding-bottom: 16px;
-  font-weight: bold;
+  padding-bottom: ${({ variant }) => (variant == 'profile' ? '' : '16px')};
+  font-weight: ${({ variant }) => (variant == 'profile' ? 'normal' : 'bold')};
   font-size: 18px;
+
+  p {
+    font-size: 16px;
+    font-weight: normal;
+  }
 `
 
-export const Nota = styled.div`
+export const Nota = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['variant'].includes(prop)
+})<CardRestauranteItemProps>`
   display: flex;
   align-items: center;
+  font-weight: ${({ variant }) => (variant == 'profile' ? 'normal' : '')};
 
   span {
     margin-right: 8px;
@@ -46,14 +65,12 @@ export const Nota = styled.div`
     width: 21px;
   }
 `
-export const ContainerLink = styled.div`
+export const ContainerLink = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['variant'].includes(prop)
+})<CardRestauranteItemProps>`
   margin-top: 16px;
-`
 
-export const SaibaMais = styled(Link)`
-  padding: 4px 6px;
-  background-color: ${cores.corTexto};
-  color: ${cores.corFooter};
-  font-size: 14px;
-  cursor: pointer;
+  a {
+    display: ${({ variant }) => (variant == 'profile' ? 'block' : '')};
+  }
 `

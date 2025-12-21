@@ -15,10 +15,11 @@ export const ButtonCarrinho = styled.button.withConfig({
   font-size: 14px;
   font-weight: bold;
   padding: ${({ padding }) =>
-    padding == 'light' ? '8px' : padding == 'big' ? '8px 8px' : '4px 0'};
+    padding == 'light' ? '8px' : padding == 'big' ? '8px 8px' : '4px'};
   margin-top: 8px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  text-align: center;
 
   &:hover {
     transform: scale(1.03);
