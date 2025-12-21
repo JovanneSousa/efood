@@ -43,6 +43,10 @@ export const ProfileContainer = styled.section`
       display: flex;
       flex-direction: column;
       gap: 20px;
+
+      @media (max-width: ${breakpoint.tablet}) {
+        padding: 8px 16px;
+      }
     }
 
     .title {
