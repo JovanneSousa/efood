@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
 
 import ListaRestaurante from '../../Components/ListaProdutos'
-import { useGetRestaurantesQuery } from '../../services/api'
 import Loader from '../../Components/Loader'
+import items from '../../Data'
 
 export type Produto = {
   foto: string
@@ -15,9 +15,8 @@ export type Produto = {
 
 const Restaurantes = () => {
   const { id } = useParams()
-  const { data: restaurantes } = useGetRestaurantesQuery()
 
-  const restaurante = restaurantes?.find((r) => r.id === Number(id))
+  const restaurante = items.find((r) => r.id === Number(id))
 
   if (!restaurante) {
     return <Loader />

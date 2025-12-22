@@ -57,7 +57,7 @@ const CardProduto = ({ descricao, image, nome, id, porcao, preco }: Props) => {
           isVisible={isVisible}
         />
       )}
-      <S.CardContainer>
+      <S.CardContainer className='shadow'>
         <div>
           <img src={image} alt={nome} />
         </div>
