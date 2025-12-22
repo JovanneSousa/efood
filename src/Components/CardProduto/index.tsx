@@ -1,80 +1,19 @@
-import { useState } from 'react'
-
-import Button from '../Button'
-import Modal from '../Modal'
 import { type Produto } from '../../Pages/Restaurantes'
+import DefaultCard, { type DefaultProps } from './DefaultCard'
+import type { ManagementProps } from './ManagementCard'
+import ManagementCard from './ManagementCard'
 
-import * as S from './styles'
-
-type Props = {
-  nome: string
-  descricao: string
-  image: string
-  id: number
-  preco: number
-  porcao: string
+export interface BaseProps {
+  produto: Produto
 }
 
-const CardProduto = ({ descricao, image, nome, id, porcao, preco }: Props) => {
-  const [isVisible, setIsVisible] = useState(false)
-  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
-    null
-  )
+type Props = DefaultProps | ManagementProps
 
-  const formataTexto = (descricao: string) => {
-    if (descricao.length > 149) {
-      return descricao.slice(0, 146) + '...'
-    }
-    return descricao
-  }
-
-  const deixaVisivel = () => {
-    return setIsVisible(true)
-  }
-
-  const fechaModal = () => {
-    return setIsVisible(false)
-  }
-
-  const selecionarProduto = () => {
-    const produto: Produto = {
-      nome,
-      descricao,
-      foto: image,
-      id,
-      preco,
-      porcao
-    }
-    setProdutoSelecionado(produto)
-  }
-
-  return (
-    <>
-      {produtoSelecionado && (
-        <Modal
-          produto={produtoSelecionado}
-          onClose={fechaModal}
-          isVisible={isVisible}
-        />
-      )}
-      <S.CardContainer className='shadow'>
-        <div>
-          <img src={image} alt={nome} />
-        </div>
-        <div>
-          <S.NomeProduto>{nome}</S.NomeProduto>
-          <S.DescProduto>{formataTexto(descricao)}</S.DescProduto>
-          <Button
-            onClick={() => {
-              selecionarProduto()
-              deixaVisivel()
-            }}
-          >
-            Adicionar ao Carrinho
-          </Button>
-        </div>
-      </S.CardContainer>
-    </>
+const CardProduto = (props: Props) => {
+  return props.variant == 'default' ? (
+    <DefaultCard {...props} variant={props.variant} />
+  ) : (
+    <ManagementCard {...props} variant={props.variant} />
   )
 }
 

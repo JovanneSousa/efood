@@ -29,7 +29,6 @@ const GerenciarRestauranteComponent = () => {
   }
   const [titulo, descricao] = dadosMap[isActive]
 
-
   return (
     <div className="container">
       <ContainerGerenciar>
@@ -96,15 +95,7 @@ const GerenciarRestauranteComponent = () => {
           {isActive == 'cardapio' && (
             <div className="grid">
               {restaurante?.cardapio.map((c) => (
-                <CardProduto
-                  descricao={c.descricao}
-                  id={c.id}
-                  image={c.foto}
-                  nome={c.nome}
-                  porcao={c.porcao}
-                  preco={c.preco}
-                  key={c.id}
-                />
+                <CardProduto variant="management" produto={c} />
               ))}
             </div>
           )}
