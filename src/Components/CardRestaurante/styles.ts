@@ -14,7 +14,8 @@ export const CardRestauranteItem = styled.div.withConfig({
   max-height: ${({ variant }) => (variant == 'default' ? '398px' : '')};
   position: relative;
 
-  background-color: ${cores.corDeFundoEscura};
+  background-color: ${({ variant }) =>
+    variant == 'profile' ? `${cores.corDeFundoEscura}` : `${cores.branco}`};
 
   > img {
     max-width: 472px;
@@ -24,10 +25,12 @@ export const CardRestauranteItem = styled.div.withConfig({
   }
 `
 
-export const DescRestaurante = styled.div`
+export const DescRestaurante = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['variant'].includes(prop)
+})<CardRestauranteItemProps>`
   padding: 8px;
-  background-color: ${cores.corDeFundoEscura};
-
+  background-color: ${({ variant }) =>
+    variant == 'profile' ? `${cores.corDeFundoEscura}` : `${cores.branco}`};
 `
 
 export const TextDescRestaurante = styled.p`

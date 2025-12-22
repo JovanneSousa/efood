@@ -19,7 +19,7 @@ const ProfileCard = ({
   return (
     <S.CardRestauranteItem variant={variant}>
       <img src={image} />
-      <S.DescRestaurante>
+      <S.DescRestaurante variant={variant}>
         <S.TituloRestaurante variant={variant}>
           <h4>{nome}</h4>
           <S.Nota variant={variant}>

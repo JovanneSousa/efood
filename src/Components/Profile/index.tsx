@@ -1,7 +1,11 @@
 import { AddressContainer, ProfileContainer } from './styles'
 import useBodyClass from '../../Hooks/useBodyClass'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faShop } from '@fortawesome/free-solid-svg-icons'
+import {
+  faLocationDot,
+  faShop,
+  faBoxOpen
+} from '@fortawesome/free-solid-svg-icons'
 import Button from '../Button'
 import CardRestaurante from '../CardRestaurante'
 import { useGetRestaurantesQuery } from '../../services/api'
@@ -104,6 +108,63 @@ const Profile = () => {
                 nota={restaurante.avaliacao}
               />
             </AddressContainer>
+          </div>
+        </div>
+        <div className="pedidos">
+          <div className="title">
+            <div>
+              <FontAwesomeIcon icon={faBoxOpen} />
+              <p>Histórico de pedidos</p>
+            </div>
+          </div>
+          <p>Acompanhe todos os pedidos realizados</p>
+          <div className="pedido-item">
+            <div className="pedido-item-group">
+              <p className="nome-restaurante">Local do pedido</p>
+              <p className="preco">R$ 49,59</p>
+            </div>
+            <div className="pedido-item-group">
+              <p className="dados-pedido">
+                pedido#1 &bull; N items &bull; Data
+              </p>
+              <p className="details">ver detalhes</p>
+            </div>
+          </div>
+          <div className="pedido-item">
+            <div className="pedido-item-group">
+              <p className="nome-restaurante">Local do pedido</p>
+              <p className="preco">R$ 49,59</p>
+            </div>
+            <div className="pedido-item-group">
+              <p className="dados-pedido">
+                pedido#1 &bull; N items &bull; Data
+              </p>
+              <p className="details">ver detalhes</p>
+            </div>
+          </div>
+          <div className="pedido-item">
+            <div className="pedido-item-group">
+              <p className="nome-restaurante">Local do pedido</p>
+              <p className="preco">R$ 49,59</p>
+            </div>
+            <div className="pedido-item-group">
+              <p className="dados-pedido">
+                pedido#1 &bull; N items &bull; Data
+              </p>
+              <p className="details">ver detalhes</p>
+            </div>
+          </div>
+          <div className="pedido-item">
+            <div className="pedido-item-group">
+              <p className="nome-restaurante">Local do pedido</p>
+              <p className="preco">R$ 49,59</p>
+            </div>
+            <div className="pedido-item-group">
+              <p className="dados-pedido">
+                pedido#1 &bull; N items &bull; Data
+              </p>
+              <p className="details">ver detalhes</p>
+            </div>
           </div>
         </div>
       </div>

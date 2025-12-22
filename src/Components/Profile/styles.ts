@@ -38,6 +38,7 @@ export const ProfileContainer = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    margin-bottom: 24px;
 
     .grid-item {
       display: flex;
@@ -49,23 +50,6 @@ export const ProfileContainer = styled.section`
       }
     }
 
-    .title {
-      display: flex;
-      font-weight: bold;
-      align-items: center;
-      justify-content: space-between;
-
-      div {
-        display: flex;
-        gap: 20px;
-      }
-
-      button {
-        max-width: 72px;
-        margin: 0px;
-      }
-    }
-
     > div {
       background-color: ${cores.corDeFundo};
       padding: 24px;
@@ -73,6 +57,64 @@ export const ProfileContainer = styled.section`
 
     @media (max-width: ${breakpoint.tablet}) {
       grid-template-columns: 1fr;
+    }
+  }
+
+  .title {
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      max-width: 72px;
+      margin: 0px;
+    }
+  }
+
+  .pedidos {
+    background-color: ${cores.corDeFundo};
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .pedido-item {
+      background-color: ${cores.corDeFundoEscura};
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .pedido-item-group {
+        display: flex;
+        justify-content: space-between;
+
+        .details {
+          cursor: pointer;
+          transition: all ease .3s;
+          &:hover {
+            font-weight: bold;
+            transform: scale(1.02);
+          }
+        }
+
+        .nome-restaurante {
+          font-size: 16px;
+          font-weight: bold;
+        }
+        .dados-pedido {
+        }
+        .preco {
+          font-size: 20px;
+          font-weight: bold;
+        }
+      }
     }
   }
 `
