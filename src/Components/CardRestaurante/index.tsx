@@ -1,44 +1,23 @@
-import star from '../../assets/image/star.png'
-import Tag from '../Tags'
-import * as S from './styles'
+import type { DefaultProps } from './DefaultCard'
+import type { ProfileProps } from './ProfileCard'
+import DefaultCard from './DefaultCard'
+import ProfileCard from './ProfileCard'
 
-type Props = {
+export interface BaseProps {
+  id: number
   nome: string
   categoria: string[]
-  descricao: string
   nota: number
-  id: number
   image: string
-  destaque: boolean
 }
 
-const CardRestaurante = ({
-  categoria,
-  descricao,
-  nome,
-  nota,
-  image,
-  destaque,
-  id
-}: Props) => {
-  return (
-    <S.CardRestauranteItem>
-      <Tag destaque={destaque} categoria={categoria} />
-      <img src={image} />
-      <S.DescRestaurante>
-        <S.TituloRestaurante>
-          <h4>{nome}</h4>
-          <S.Nota>
-            <span>{nota}</span>
-            <img src={star} />
-          </S.Nota>
-        </S.TituloRestaurante>
-        <S.TextDescRestaurante>{descricao}</S.TextDescRestaurante>
-        <S.ContainerLink>
-          <S.SaibaMais to={`/restaurantes/${id}`}>Saiba Mais</S.SaibaMais>
-        </S.ContainerLink>
-      </S.DescRestaurante>
-    </S.CardRestauranteItem>
+type Props = DefaultProps | ProfileProps
+
+const CardRestaurante = (props: Props) => {
+  return props.variant == 'default' ? (
+    <DefaultCard {...props} />
+  ) : (
+    <ProfileCard {...props} />
   )
 }
 export default CardRestaurante

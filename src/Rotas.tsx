@@ -15,9 +15,10 @@ const Rotas = () => {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route path="/auth/:type" element={<Auth />} />
-          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/restaurantes/novo" />
+          <Route path="/gerenciar-restaurante/:id" />
         </Route>
         <Route element={<RestauranteLayout />}>
           <Route path="/restaurantes/:id" element={<Restaurantes />} />

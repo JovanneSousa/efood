@@ -11,6 +11,7 @@ const RestauranteList = () => {
       <RestauranteSection>
         {restaurantes?.map((restaurante) => (
           <CardRestaurante
+            variant="default"
             destaque={restaurante.destacado}
             nome={restaurante.titulo}
             descricao={restaurante.descricao}

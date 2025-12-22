@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import { cores } from '../../GlobalStyle'
 
+type PaddingVariant = 'light' | 'big'
+
 interface ButtonProps {
-  padding?: string
+  padding?: PaddingVariant
 }
 
 export const ButtonCarrinho = styled.button.withConfig({
@@ -14,11 +16,15 @@ export const ButtonCarrinho = styled.button.withConfig({
   width: 100%;
   font-size: 14px;
   font-weight: bold;
-  padding: ${({ padding }) =>
-    padding == 'light' ? '8px' : padding == 'big' ? '8px 8px' : '4px 0'};
+  padding: ${({ padding }) => {
+    if (padding == 'big') return '8px 8px'
+    if (padding == 'light') return '8px'
+    return '4px'
+  }};
   margin-top: 8px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  text-align: center;
 
   &:hover {
     transform: scale(1.03);

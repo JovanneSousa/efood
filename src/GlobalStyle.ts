@@ -42,6 +42,10 @@ export const GlobalStyle = createGlobalStyle`
 
         .page-content {
           padding: 80px 0;
+
+          @media (max-width: ${breakpoint.tablet}) {
+            padding: 40px 0;
+          }
         }
 
         .shadow {
