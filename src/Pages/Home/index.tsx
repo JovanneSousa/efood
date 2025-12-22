@@ -1,4 +1,5 @@
 import RestauranteList from '../../Components/RestauranteList'
+import type { Produto } from '../Restaurantes'
 
 export type Restaurante = {
   id: number
@@ -8,7 +9,7 @@ export type Restaurante = {
   avaliacao: number
   descricao: string
   capa: string
-  cardapio: []
+  cardapio: Produto[]
 }
 
 const Home = () => {

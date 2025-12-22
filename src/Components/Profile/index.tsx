@@ -10,15 +10,18 @@ import Button from '../Button'
 import CardRestaurante from '../CardRestaurante'
 import { useGetRestaurantesQuery } from '../../services/api'
 import Loader from '../Loader'
+import { useState } from 'react'
 
 const Profile = () => {
   // altera a cor do body com base na classe
   useBodyClass('layout-profile')
   const { data: restaurantes } = useGetRestaurantesQuery()
+  const [isPedidoItemActive, setPedidoItemActive] = useState(false)
 
   if (!restaurantes) return <Loader />
 
   const restaurante = restaurantes[0]
+  console.log(restaurante)
 
   return (
     <ProfileContainer>
@@ -119,52 +122,107 @@ const Profile = () => {
           </div>
           <p>Acompanhe todos os pedidos realizados</p>
           <div className="pedido-item">
-            <div className="pedido-item-group">
-              <p className="nome-restaurante">Local do pedido</p>
-              <p className="preco">R$ 49,59</p>
+            <div className="pedido-item-container">
+              <div className="img">
+                <img src={restaurante.capa} alt="placeholder" />
+              </div>
+              <div className="pedido-group">
+                <div className="pedido-item-group">
+                  <p className="nome-restaurante">Local do pedido</p>
+                  <p className="preco">R$ 49,59</p>
+                </div>
+                <div className="pedido-item-group">
+                  <p className="dados-pedido">
+                    pedido#1 &bull; N items &bull; Data
+                  </p>
+                  <p
+                    className="details"
+                    onClick={() => setPedidoItemActive(!isPedidoItemActive)}
+                  >
+                    {!isPedidoItemActive ? 'ver detalhes' : 'Ocultar detalhes'}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="pedido-item-group">
-              <p className="dados-pedido">
-                pedido#1 &bull; N items &bull; Data
-              </p>
-              <p className="details">ver detalhes</p>
-            </div>
-          </div>
-          <div className="pedido-item">
-            <div className="pedido-item-group">
-              <p className="nome-restaurante">Local do pedido</p>
-              <p className="preco">R$ 49,59</p>
-            </div>
-            <div className="pedido-item-group">
-              <p className="dados-pedido">
-                pedido#1 &bull; N items &bull; Data
-              </p>
-              <p className="details">ver detalhes</p>
-            </div>
-          </div>
-          <div className="pedido-item">
-            <div className="pedido-item-group">
-              <p className="nome-restaurante">Local do pedido</p>
-              <p className="preco">R$ 49,59</p>
-            </div>
-            <div className="pedido-item-group">
-              <p className="dados-pedido">
-                pedido#1 &bull; N items &bull; Data
-              </p>
-              <p className="details">ver detalhes</p>
-            </div>
-          </div>
-          <div className="pedido-item">
-            <div className="pedido-item-group">
-              <p className="nome-restaurante">Local do pedido</p>
-              <p className="preco">R$ 49,59</p>
-            </div>
-            <div className="pedido-item-group">
-              <p className="dados-pedido">
-                pedido#1 &bull; N items &bull; Data
-              </p>
-              <p className="details">ver detalhes</p>
-            </div>
+            {restaurante.cardapio.length != 0 && (
+              <div className={`items ${isPedidoItemActive ? 'is-open' : ''}`}>
+                <p>Produtos do pedido</p>
+                <div className="items-container">
+                  <div className="pedido-item-container item">
+                    <div className="img">
+                      <img
+                        src={restaurante.cardapio[0].foto}
+                        alt="placeholder"
+                      />
+                    </div>
+                    <div className="pedido-group">
+                      <div className="pedido-item-group">
+                        <p className="nome-restaurante">
+                          {restaurante.cardapio[0].nome}
+                        </p>
+                        <p className="preco">
+                          Total: R$ {restaurante.cardapio[0].preco}
+                        </p>
+                      </div>
+                      <div className="pedido-item-group">
+                        <p>Quantidade: 1</p>
+                        <p>
+                          Valor unitário: R$ {restaurante.cardapio[0].preco}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="pedido-item-container item">
+                    <div className="img">
+                      <img
+                        src={restaurante.cardapio[1].foto}
+                        alt="placeholder"
+                      />
+                    </div>
+                    <div className="pedido-group">
+                      <div className="pedido-item-group">
+                        <p className="nome-restaurante">
+                          {restaurante.cardapio[1].nome}
+                        </p>
+                        <p className="preco">
+                          Total: R$ {restaurante.cardapio[1].preco}
+                        </p>
+                      </div>
+                      <div className="pedido-item-group">
+                        <p>Quantidade: 1</p>
+                        <p>
+                          Valor unitário: R$ {restaurante.cardapio[1].preco}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="pedido-item-container item">
+                    <div className="img">
+                      <img
+                        src={restaurante.cardapio[2].foto}
+                        alt="placeholder"
+                      />
+                    </div>
+                    <div className="pedido-group">
+                      <div className="pedido-item-group">
+                        <p className="nome-restaurante">
+                          {restaurante.cardapio[2].nome}
+                        </p>
+                        <p className="preco">
+                          Total: R$ {restaurante.cardapio[2].preco}
+                        </p>
+                      </div>
+                      <div className="pedido-item-group">
+                        <p>Quantidade: 1</p>
+                        <p>
+                          Valor unitário: R$ {restaurante.cardapio[2].preco}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
