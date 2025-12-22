@@ -165,9 +165,9 @@ const Profile = () => {
                         </p>
                       </div>
                       <div className="pedido-item-group">
-                        <p>Quantidade: 1</p>
+                        <p>qtd: 1</p>
                         <p>
-                          Valor unitário: R$ {restaurante.cardapio[0].preco}
+                          Valor unidade: R$ {restaurante.cardapio[0].preco}
                         </p>
                       </div>
                     </div>
@@ -189,9 +189,9 @@ const Profile = () => {
                         </p>
                       </div>
                       <div className="pedido-item-group">
-                        <p>Quantidade: 1</p>
+                        <p>qtd: 1</p>
                         <p>
-                          Valor unitário: R$ {restaurante.cardapio[1].preco}
+                          Valor unidade: R$ {restaurante.cardapio[1].preco}
                         </p>
                       </div>
                     </div>
@@ -213,9 +213,9 @@ const Profile = () => {
                         </p>
                       </div>
                       <div className="pedido-item-group">
-                        <p>Quantidade: 1</p>
+                        <p>qtd: 1</p>
                         <p>
-                          Valor unitário: R$ {restaurante.cardapio[2].preco}
+                          Valor unidade: R$ {restaurante.cardapio[2].preco}
                         </p>
                       </div>
                     </div>
