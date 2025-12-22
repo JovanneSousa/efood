@@ -2,9 +2,9 @@ import styled from 'styled-components'
 import { cores } from '../../GlobalStyle'
 
 export const ContainerGerenciar = styled.section`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
   .grid {
     display: grid;
@@ -63,22 +63,27 @@ export const ContainerGerenciar = styled.section`
     background-color: ${cores.corFooter};
     padding: 24px;
 
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
     .content-title {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 24px;
-        p {
-            font-weight: bold;
-            padding: 4px;
-        }
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
 
-        .desc {
-            font-weight: normal;
-        }
+      p {
+        font-weight: bold;
+        padding: 4px;
+      }
 
-        button {
-            max-width: 150px;
-        }
+      .desc {
+        font-weight: normal;
+      }
+
+      button {
+        max-width: 150px;
+      }
     }
   }
 `

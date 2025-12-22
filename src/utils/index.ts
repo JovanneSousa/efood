@@ -13,9 +13,9 @@ export const formataPreco = (preco = 0) => {
   }).format(preco)
 }
 
-export const formataTexto = (descricao: string) => {
-  if (descricao.length > 149) {
-    return descricao.slice(0, 146) + '...'
+export const formataTexto = (descricao: string, caracteres: number) => {
+  if (descricao.length > caracteres) {
+    return descricao.slice(0, caracteres - 3) + '...'
   }
   return descricao
 }

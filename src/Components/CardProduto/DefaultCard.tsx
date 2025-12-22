@@ -17,6 +17,8 @@ const DefaultCard = ({ produto }: DefaultProps) => {
     null
   )
 
+  const caracteresMáximosDaLinha = 149
+
   return (
     <>
       {produtoSelecionado && (
@@ -26,13 +28,15 @@ const DefaultCard = ({ produto }: DefaultProps) => {
           isVisible={isVisible}
         />
       )}
-      <S.CardContainer className="shadow">
+      <S.CardContainer variant="default" className="shadow">
         <div>
           <img src={produto.foto} alt={produto.nome} />
         </div>
         <div>
           <S.NomeProduto>{produto.nome}</S.NomeProduto>
-          <S.DescProduto>{formataTexto(produto.descricao)}</S.DescProduto>
+          <S.DescProduto>
+            {formataTexto(produto.descricao, caracteresMáximosDaLinha)}
+          </S.DescProduto>
           <Button
             onClick={() => {
               setProdutoSelecionado(produto)
