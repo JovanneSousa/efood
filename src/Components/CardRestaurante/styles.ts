@@ -1,33 +1,58 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { cores } from '../../GlobalStyle'
 
-interface CardRestauranteItemProps {
-  variant: 'profile' | 'default'
+type Variant = 'profile' | 'default'
+
+interface VariantProps {
+  variant: Variant
+}
+
+const cardVariants = {
+  default: css`
+    background-color: ${cores.branco};
+    border: 1px solid ${cores.corTexto};
+    max-height: 398px;
+
+    > img {
+      max-height: 215px;
+    }
+  `,
+  profile: css`
+    background-color: ${cores.corDeFundoEscura};
+    > img {
+      max-height: 128px;
+    }
+  `
+}
+
+const titleVariants = {
+  default: css`
+    padding-bottom: 16px;
+    font-weight: bold;
+  `,
+  profile: css`
+    flex-direction: column;
+  `
 }
 
 export const CardRestauranteItem = styled.div.withConfig({
-  shouldForwardProp: (prop) => !['variant'].includes(prop)
-})<CardRestauranteItemProps>`
-  border: ${({ variant }) =>
-    variant == 'default' ? `1px solid ${cores.corTexto}` : `none`};
+  shouldForwardProp: (prop) => prop !== 'variant'
+})<VariantProps>`
   height: 100%;
-  max-height: ${({ variant }) => (variant == 'default' ? '398px' : '')};
   position: relative;
-
-  background-color: ${({ variant }) =>
-    variant == 'profile' ? `${cores.corDeFundoEscura}` : `${cores.branco}`};
 
   > img {
     max-width: 472px;
     width: 100%;
-    max-height: ${({ variant }) => (variant == 'default' ? '215px' : '128px')};
     object-fit: cover;
   }
+
+  ${({ variant }) => cardVariants[variant]}
 `
 
 export const DescRestaurante = styled.div.withConfig({
-  shouldForwardProp: (prop) => !['variant'].includes(prop)
-})<CardRestauranteItemProps>`
+  shouldForwardProp: (prop) => prop !== 'variant'
+})<VariantProps>`
   padding: 8px;
   background-color: ${({ variant }) =>
     variant == 'profile' ? `${cores.corDeFundoEscura}` : `${cores.branco}`};
@@ -41,28 +66,31 @@ export const TextDescRestaurante = styled.p`
   text-overflow: ellipsis;
 `
 export const TituloRestaurante = styled.div.withConfig({
-  shouldForwardProp: (prop) => !['variant'].includes(prop)
-})<CardRestauranteItemProps>`
+  shouldForwardProp: (prop) => prop !== 'variant'
+})<VariantProps>`
   display: flex;
-  flex-direction: ${({ variant }) => (variant == 'profile' ? 'column' : '')};
 
   justify-content: space-between;
-  padding-bottom: ${({ variant }) => (variant == 'profile' ? '' : '16px')};
-  font-weight: ${({ variant }) => (variant == 'profile' ? 'normal' : 'bold')};
   font-size: 18px;
 
   p {
     font-size: 16px;
     font-weight: normal;
   }
+
+  ${({ variant }) => titleVariants[variant]}
 `
 
 export const Nota = styled.div.withConfig({
-  shouldForwardProp: (prop) => !['variant'].includes(prop)
-})<CardRestauranteItemProps>`
+  shouldForwardProp: (prop) => prop !== 'variant'
+})<VariantProps>`
   display: flex;
   align-items: center;
-  font-weight: ${({ variant }) => (variant == 'profile' ? 'normal' : '')};
+  ${({ variant }) =>
+    variant === 'profile' &&
+    css`
+      font-weight: normal;
+    `}
 
   span {
     margin-right: 8px;
@@ -72,11 +100,12 @@ export const Nota = styled.div.withConfig({
   }
 `
 export const ContainerLink = styled.div.withConfig({
-  shouldForwardProp: (prop) => !['variant'].includes(prop)
-})<CardRestauranteItemProps>`
+  shouldForwardProp: (prop) => prop !== 'variant'
+})<VariantProps>`
   margin-top: 16px;
 
   a {
-    display: ${({ variant }) => (variant == 'profile' ? 'block' : '')};
+    display: ${({ variant }) =>
+      variant == 'profile' ? 'block' : 'inline'};
   }
 `

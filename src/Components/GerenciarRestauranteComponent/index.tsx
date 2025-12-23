@@ -14,6 +14,8 @@ import Button from '../Button'
 import CardProduto from '../CardProduto'
 import useBodyClass from '../../Hooks/useBodyClass'
 import FormConfigRestaurante from './FormConfigRestaurante'
+import PedidosContainer from '../PedidosContainer'
+import Loader from '../Loader'
 
 type SectionActive = 'pedido' | 'cardapio' | 'config'
 
@@ -29,6 +31,8 @@ const GerenciarRestauranteComponent = () => {
     config: ['Configurações', 'Atualize as informações do seu restaurante']
   }
   const [titulo, descricao] = dadosMap[isActive]
+
+  if (!restaurante) return <Loader />
 
   return (
     <div className="container">
@@ -66,7 +70,7 @@ const GerenciarRestauranteComponent = () => {
               <p>Produtos e preços</p>
               <div className="flex">
                 <FontAwesomeIcon icon={faBoxOpen} />
-                <p>N produtos</p>
+                <p>{restaurante?.cardapio.length} produtos</p>
               </div>
             </div>
           </div>
@@ -104,11 +108,14 @@ const GerenciarRestauranteComponent = () => {
           {isActive == 'cardapio' && (
             <div className="grid">
               {restaurante?.cardapio.map((c) => (
-                <CardProduto variant="management" produto={c} />
+                <CardProduto key={c.id} variant="management" produto={c} />
               ))}
             </div>
           )}
           {isActive == 'config' && <FormConfigRestaurante />}
+          {isActive == 'pedido' && (
+            <PedidosContainer variant="management" restaurante={restaurante} />
+          )}
         </div>
       </ContainerGerenciar>
     </div>

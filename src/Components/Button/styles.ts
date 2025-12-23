@@ -35,6 +35,10 @@ export const ButtonCarrinho = styled.button.withConfig({
     color: ${cores.corFooter};
   }
 
+  &.shine {
+    background-color: ${cores.corDeFundo};
+  }
+
   &.comprar {
     width: 218px;
   }

@@ -17,10 +17,6 @@ export const ContainerGerenciar = styled.section`
       button {
         max-width: 150px;
 
-        &.shine {
-          background-color: ${cores.corDeFundo};
-        }
-
         @media (max-width: ${breakpoint.tablet}) {
           max-width: none;
         }
