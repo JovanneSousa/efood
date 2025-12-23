@@ -13,6 +13,7 @@ import { useState } from 'react'
 import Button from '../Button'
 import CardProduto from '../CardProduto'
 import useBodyClass from '../../Hooks/useBodyClass'
+import FormConfigRestaurante from './FormConfigRestaurante'
 
 type SectionActive = 'pedido' | 'cardapio' | 'config'
 
@@ -42,11 +43,13 @@ const GerenciarRestauranteComponent = () => {
             <div className="icon-container">
               <FontAwesomeIcon size="2x" icon={faBoxOpen} />
             </div>
-            <p className="title-card">Pedidos</p>
-            <p>Gerencie seus pedidos</p>
-            <div className="flex">
-              <FontAwesomeIcon icon={faArrowTrendUp} />
-              <p>N pedidos ativos</p>
+            <div>
+              <p className="title-card">Pedidos</p>
+              <p>Gerencie seus pedidos</p>
+              <div className="flex">
+                <FontAwesomeIcon icon={faArrowTrendUp} />
+                <p>N pedidos ativos</p>
+              </div>
             </div>
           </div>
           <div
@@ -58,11 +61,13 @@ const GerenciarRestauranteComponent = () => {
             <div className="icon-container">
               <FontAwesomeIcon size="2x" icon={faShop} />
             </div>
-            <p className="title-card">Cardápio</p>
-            <p>Produtos e preços</p>
-            <div className="flex">
-              <FontAwesomeIcon icon={faBoxOpen} />
-              <p>N produtos</p>
+            <div>
+              <p className="title-card">Cardápio</p>
+              <p>Produtos e preços</p>
+              <div className="flex">
+                <FontAwesomeIcon icon={faBoxOpen} />
+                <p>N produtos</p>
+              </div>
             </div>
           </div>
           <div
@@ -74,11 +79,13 @@ const GerenciarRestauranteComponent = () => {
             <div className="icon-container">
               <FontAwesomeIcon size="2x" icon={faGear} />
             </div>
-            <p className="title-card">Configurações</p>
-            <p>Dados do restaurante</p>
-            <div className="flex">
-              <FontAwesomeIcon icon={faCheck} />
-              <p>Perfil completo</p>
+            <div>
+              <p className="title-card">Configurações</p>
+              <p>Dados do restaurante</p>
+              <div className="flex">
+                <FontAwesomeIcon icon={faCheck} />
+                <p>Perfil completo</p>
+              </div>
             </div>
           </div>
         </div>
@@ -88,9 +95,11 @@ const GerenciarRestauranteComponent = () => {
               <p>{titulo}</p>
               <p className="desc">{descricao}</p>
             </div>
-            <Button className="red" padding="light">
-              + Novo produto
-            </Button>
+            {isActive == 'cardapio' && (
+              <Button className="red" padding="light">
+                + Novo produto
+              </Button>
+            )}
           </div>
           {isActive == 'cardapio' && (
             <div className="grid">
@@ -99,6 +108,7 @@ const GerenciarRestauranteComponent = () => {
               ))}
             </div>
           )}
+          {isActive == 'config' && <FormConfigRestaurante />}
         </div>
       </ContainerGerenciar>
     </div>

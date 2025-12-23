@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../GlobalStyle'
+import { breakpoint, cores } from '../../GlobalStyle'
 
 interface CardProdutoProps {
   variant: 'default' | 'management'
@@ -12,20 +12,21 @@ export const CardContainer = styled.div.withConfig({
   background-color: ${cores.corTexto};
   color: ${cores.corFooter};
 
-.flex {
-  display: flex;
-  gap: 8px;
+  .flex {
+    display: flex;
+    gap: 8px;
 
-  .minor {
-    max-width: 15%;
+    .minor {
+      max-width: 64px;
+    }
   }
-}
 
   .text {
     display: flex;
     flex-direction: column;
 
-    .nome, .preco {
+    .nome,
+    .preco {
       font-weight: bold;
     }
 
@@ -39,6 +40,10 @@ export const CardContainer = styled.div.withConfig({
     max-width: ${({ variant }) => (variant == 'default' ? '100%' : '96px')};
     width: 100%;
     height: ${({ variant }) => (variant == 'default' ? '167px' : '96px')};
+  }
+
+  @media (max-width: ${breakpoint.tablet}) {
+    padding: 8px;
   }
 `
 export const NomeProduto = styled.h4`

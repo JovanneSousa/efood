@@ -27,7 +27,7 @@ const ManagementCard = ({ produto }: ManagementProps) => {
       </div>
       <div className="flex">
         <Button padding="light">Editar</Button>
-        <Button className='minor'>
+        <Button padding='light' className='minor'>
           <FontAwesomeIcon icon={faTrash} />
         </Button>
       </div>
