@@ -100,7 +100,7 @@ export const ProfileContainer = styled.section`
     .pedido-item-group {
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      gap: 8px;
 
       .details {
         cursor: pointer;
@@ -134,7 +134,7 @@ export const ProfileContainer = styled.section`
 
       .pedido-item-container {
         display: flex;
-        gap: 16px;
+        gap: 8px;
       }
 
       @media (max-width: ${breakpoint.tablet}) {

@@ -22,7 +22,7 @@ const DefaultCard = ({
   variant
 }: DefaultProps) => {
   return (
-    <S.CardRestauranteItem variant={variant}>
+    <S.CardRestauranteItem className='shadow'  variant={variant}>
       <Tag destaque={destaque} categoria={categoria} />
       <img src={image} />
       <S.DescRestaurante variant={variant}>

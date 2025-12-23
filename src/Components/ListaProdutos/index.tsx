@@ -10,15 +10,7 @@ const ListaRestaurante = ({ produtos }: Props) => {
   return (
     <ListaProdutos className="container">
       {produtos.map((produto) => (
-        <CardProduto
-          porcao={produto.porcao}
-          preco={produto.preco}
-          key={produto.id}
-          descricao={produto.descricao}
-          image={produto.foto}
-          nome={produto.nome}
-          id={produto.id}
-        />
+        <CardProduto variant="default" produto={produto} key={produto.id} />
       ))}
     </ListaProdutos>
   )

@@ -23,32 +23,4 @@ export const FormContainer = styled.div`
       }
     }
   }
-
-  form {
-    .input-wrapper {
-      display: flex;
-      flex-direction: column;
-      padding: 8px 0;
-
-      label {
-        font-weight: bold;
-        padding-bottom: 8px;
-      }
-
-      input {
-        background-color: ${cores.corFooter};
-        outline: none;
-        border: none;
-        padding: 8px;
-        border: 1px solid ${cores.corFooter};
-        color: ${cores.corTexto};
-        font-size: 16px;
-        font-weight: bold;
-
-        &:focus {
-          border: 1px solid ${cores.corLeveTexto};
-        }
-      }
-    }
-  }
 `

@@ -1,15 +1,49 @@
 import styled from 'styled-components'
-import { cores } from '../../GlobalStyle'
+import { breakpoint, cores } from '../../GlobalStyle'
 
-export const CardContainer = styled.div`
-  padding: 8px;
+interface CardProdutoProps {
+  variant: 'default' | 'management'
+}
+
+export const CardContainer = styled.div.withConfig({
+  shouldForwardProp: (prop) => !['variant'].includes(prop)
+})<CardProdutoProps>`
+  padding: ${({ variant }) => (variant == 'default' ? '8px' : '16px')};
   background-color: ${cores.corTexto};
   color: ${cores.corFooter};
 
+  .flex {
+    display: flex;
+    gap: 8px;
+
+    .minor {
+      max-width: 64px;
+    }
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+
+    .nome,
+    .preco {
+      font-weight: bold;
+    }
+
+    p {
+      padding: 4px;
+    }
+  }
+
   img {
-    max-width: 100%;
+    object-fit: cover;
+    max-width: ${({ variant }) => (variant == 'default' ? '100%' : '96px')};
     width: 100%;
-    height: 167px;
+    height: ${({ variant }) => (variant == 'default' ? '167px' : '96px')};
+  }
+
+  @media (max-width: ${breakpoint.tablet}) {
+    padding: 8px;
   }
 `
 export const NomeProduto = styled.h4`

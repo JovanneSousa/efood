@@ -10,6 +10,9 @@ const Rotas = () => {
   const ProfilePage = lazy(() => import('../Pages/ProfilePage'))
   const DefaultLayout = lazy(() => import('../Layouts/DefaultLayout'))
   const RestauranteLayout = lazy(() => import('../Layouts/RestauranteLayout'))
+  const GerenciarRestaurante = lazy(
+    () => import('../Pages/GerenciarRestaurante')
+  )
 
   return (
     <Suspense fallback={<Loader />}>
@@ -21,10 +24,15 @@ const Rotas = () => {
           <Route element={<PrivateRoute />}>
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/restaurantes/novo" />
-            <Route path="/gerenciar-restaurante/:id" />
           </Route>
         </Route>
         <Route element={<RestauranteLayout />}>
+          <Route element={<PrivateRoute />}>
+            <Route
+              path="/gerenciar-restaurante/:id"
+              element={<GerenciarRestaurante />}
+            />
+          </Route>
           <Route path="/restaurantes/:id" element={<Restaurantes />} />
         </Route>
       </Routes>

@@ -12,3 +12,10 @@ export const formataPreco = (preco = 0) => {
     currency: 'BRL'
   }).format(preco)
 }
+
+export const formataTexto = (descricao: string, caracteres: number) => {
+  if (descricao.length > caracteres) {
+    return descricao.slice(0, caracteres - 3) + '...'
+  }
+  return descricao
+}

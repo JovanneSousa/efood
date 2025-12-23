@@ -8,19 +8,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import Button from '../Button'
 import CardRestaurante from '../CardRestaurante'
-import { useGetRestaurantesQuery } from '../../services/api'
-import Loader from '../Loader'
 import { useState } from 'react'
+import items from '../../Data'
 
 const Profile = () => {
   // altera a cor do body com base na classe
   useBodyClass('layout-profile')
-  const { data: restaurantes } = useGetRestaurantesQuery()
   const [isPedidoItemActive, setPedidoItemActive] = useState(false)
 
-  if (!restaurantes) return <Loader />
-
-  const restaurante = restaurantes[0]
+  const restaurante = items[0]
   console.log(restaurante)
 
   return (
@@ -165,10 +161,8 @@ const Profile = () => {
                         </p>
                       </div>
                       <div className="pedido-item-group">
-                        <p>Quantidade: 1</p>
-                        <p>
-                          Valor unitário: R$ {restaurante.cardapio[0].preco}
-                        </p>
+                        <p>qtd: 1</p>
+                        <p>Valor unidade: R$ {restaurante.cardapio[0].preco}</p>
                       </div>
                     </div>
                   </div>
@@ -189,10 +183,8 @@ const Profile = () => {
                         </p>
                       </div>
                       <div className="pedido-item-group">
-                        <p>Quantidade: 1</p>
-                        <p>
-                          Valor unitário: R$ {restaurante.cardapio[1].preco}
-                        </p>
+                        <p>qtd: 1</p>
+                        <p>Valor unidade: R$ {restaurante.cardapio[1].preco}</p>
                       </div>
                     </div>
                   </div>
@@ -213,10 +205,8 @@ const Profile = () => {
                         </p>
                       </div>
                       <div className="pedido-item-group">
-                        <p>Quantidade: 1</p>
-                        <p>
-                          Valor unitário: R$ {restaurante.cardapio[2].preco}
-                        </p>
+                        <p>qtd: 1</p>
+                        <p>Valor unidade: R$ {restaurante.cardapio[2].preco}</p>
                       </div>
                     </div>
                   </div>
