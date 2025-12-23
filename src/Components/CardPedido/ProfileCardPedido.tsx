@@ -1,6 +1,12 @@
 import { useState } from 'react'
-import { CardPedidoContainer, ImageContainer, ItemsSection, PedidoRow } from './styles'
+import {
+  CardPedidoContainer,
+  ImageContainer,
+  ItemsSection,
+  PedidoRow
+} from './styles'
 import type { BaseVariantProps } from '.'
+import Tag from '../Tags'
 
 export interface ProfileCardPedidoProps extends BaseVariantProps {
   variant: 'profile'
@@ -21,6 +27,7 @@ const ProfileCardPedido = ({
         <div className="pedido-group">
           <PedidoRow>
             <p className="nome-restaurante">{restaurante.titulo}</p>
+            <Tag value={['pendente']} status="concluido" />
             <p className="preco">R$ 49,59</p>
           </PedidoRow>
           <PedidoRow>

@@ -1,26 +1,27 @@
 import * as S from './styles'
 
 type Props = {
-  categoria: string[]
-  destaque: boolean
+  value: string[]
+  destaque?: boolean
+  status?: 'pendente' | 'andamento' | 'concluido' | 'cancelado'
 }
 
-const Tag = ({ categoria, destaque }: Props) => {
-  const categoriasArray = Array.isArray(categoria)
-    ? categoria
-    : typeof categoria === 'string'
-    ? [categoria]
+const Tag = ({ value, destaque = false, status }: Props) => {
+  const valueAsArray = Array.isArray(value)
+    ? value
+    : typeof value === 'string'
+    ? [value]
     : []
 
   return (
-    <S.CategoriaContainer>
-      {destaque && (
-        <S.Categoria key={'destaque'}>Destaque da semana</S.Categoria>
-      )}
-      {categoriasArray.map((cat) => (
-        <S.Categoria key={cat}>{cat}</S.Categoria>
+    <S.TagContainer>
+      {destaque && <S.Tag key={'destaque'}>Destaque da semana</S.Tag>}
+      {valueAsArray.map((cat) => (
+        <S.Tag status={status} key={cat}>
+          {cat}
+        </S.Tag>
       ))}
-    </S.CategoriaContainer>
+    </S.TagContainer>
   )
 }
 
