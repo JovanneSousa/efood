@@ -1,6 +1,6 @@
 import type { Restaurante } from '../Pages/Home'
 
-const mediaPath = 'http://localhost:5173/'
+const mediaPath = './'
 
 // type Product = {
 //   id: number
