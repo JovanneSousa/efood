@@ -21,17 +21,15 @@ interface RestaurantHeaderProps {
 type HeaderProps = DefaultHeaderProps | RestaurantHeaderProps
 
 const Header = (props: HeaderProps) => {
-  const ONE_HOUR = 60 * 60 * 1000
   const dispatch = useDispatch()
 
-  const issuedAt = Number(localStorage.getItem('issuedAt'))
-  const expiresAt = issuedAt + ONE_HOUR
+  const expiresIn = Number(localStorage.getItem('expiresIn'))
 
   useEffect(() => {
-    if (Date.now() >= expiresAt) {
+    if (Date.now() >= expiresIn) {
       dispatch(logout())
     }
-  }, [dispatch, expiresAt])
+  }, [dispatch, expiresIn])
 
   if (props.variant == 'restaurante') {
     const { nome, restaurante, tipo } = props
