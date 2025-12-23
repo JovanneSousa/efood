@@ -28,17 +28,6 @@ export const ProfileContainer = styled.section`
     }
   }
 
-  .img {
-    width: 80px;
-    height: 80px;
-    img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-  }
-
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -49,15 +38,12 @@ export const ProfileContainer = styled.section`
       display: flex;
       flex-direction: column;
       gap: 20px;
+      background-color: ${cores.corDeFundo};
+      padding: 16px;
 
       @media (max-width: ${breakpoint.tablet}) {
-        padding: 8px 16px;
+        padding: 16px;
       }
-    }
-
-    > div {
-      background-color: ${cores.corDeFundo};
-      padding: 24px;
     }
 
     @media (max-width: ${breakpoint.tablet}) {
@@ -82,10 +68,34 @@ export const ProfileContainer = styled.section`
     }
   }
 
+  @media (max-width: ${breakpoint.tablet}) {
+    padding: 16px 0;
+  }
 
+  .title-form {
+    font-weight: bold;
+    font-size: 22px;
+    padding: 16px 0 8px;
+    text-align: center;
+
+    @media (max-width: ${breakpoint.tablet}) {
+      font-size: 18px;
+    }
+  }
 `
 
-export const AddressContainer = styled.div`
+export const ImageContainerFit = styled.div`
+  width: 80px;
+  height: 80px;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+`
+
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -98,26 +108,41 @@ export const AddressContainer = styled.div`
   border-bottom: 1px solid ${cores.corTexto};
   scrollbar-color: ${cores.corTexto} ${cores.corDeFundo};
 
-  .card-address {
-    padding: 16px;
-    background-color: ${cores.corFooter};
+  @media (max-width: ${breakpoint.tablet}) {
+    max-height: 650px;
+  }
+`
 
-    .header-address-card {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
+export const CardAddress = styled.div`
+  padding: 16px;
+  background-color: ${cores.corFooter};
 
-      .title-address {
-        font-weight: bold;
-      }
+  .header-address-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-      span {
-        background-color: ${cores.corTexto};
-        color: ${cores.corDeFundo};
-        padding: 4px 8px;
-        font-size: 12px;
-        font-weight: bold;
-      }
+    .title-address {
+      font-weight: bold;
+    }
+
+    span {
+      background-color: ${cores.corTexto};
+      color: ${cores.corDeFundo};
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+
+  .icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    svg {
+      cursor: pointer;
+      padding: 8px;
     }
   }
 `

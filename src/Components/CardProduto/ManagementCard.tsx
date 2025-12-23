@@ -7,9 +7,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 export interface ManagementProps extends BaseProps {
   variant: 'management'
+  setIsEditing: () => void
 }
 
-const ManagementCard = ({ produto }: ManagementProps) => {
+const ManagementCard = ({ produto, setIsEditing }: ManagementProps) => {
   const caracteresMáximosDaLinha = 45
 
   return (
@@ -26,7 +27,7 @@ const ManagementCard = ({ produto }: ManagementProps) => {
         </div>
       </div>
       <div className="flex">
-        <Button padding="light">Editar</Button>
+        <Button onClick={setIsEditing} padding="light">Editar</Button>
         <Button padding='light' className='minor'>
           <FontAwesomeIcon icon={faTrash} />
         </Button>

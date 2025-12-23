@@ -31,11 +31,26 @@ export const GlobalStyle = createGlobalStyle`
           background-color: ${cores.corDeFundo};
         }
 
+        .flex-button {
+          display: flex;
+          gap: 20px;
+        }
+
       form {
+        .flex-input-wrapper {
+          display: flex;
+          gap: 20px;
+
+          @media (max-width: ${breakpoint.tablet}) {
+            display: block;
+          }
+        }
+
           .input-wrapper {
             display: flex;
             flex-direction: column;
             padding: 8px 0;
+            width: 100%;
 
             label {
               font-weight: bold;
