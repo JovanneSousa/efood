@@ -13,11 +13,16 @@ import { useState } from 'react'
 import Button from '../Button'
 import CardProduto from '../CardProduto'
 import useBodyClass from '../../Hooks/useBodyClass'
-import FormConfigRestaurante from './FormConfigRestaurante'
+import PedidosContainer from '../PedidosContainer'
+import Loader from '../Loader'
+import FormProduto from '../FormProduto'
+import FormRestaurante from '../FromRestaurante'
 
 type SectionActive = 'pedido' | 'cardapio' | 'config'
 
 const GerenciarRestauranteComponent = () => {
+  const [isEditing, setIsEditing] = useState(false)
+  const [isFormOpen, setIsFormOpen] = useState(false)
   const { id } = useParams()
   const restaurante = items.find((r) => r.id == Number(id))
   const [isActive, setIsActive] = useState<SectionActive>('pedido')
@@ -29,6 +34,46 @@ const GerenciarRestauranteComponent = () => {
     config: ['Configurações', 'Atualize as informações do seu restaurante']
   }
   const [titulo, descricao] = dadosMap[isActive]
+
+  if (!restaurante) return <Loader />
+
+  const setEditing = () => {
+    setIsEditing(true)
+    setIsFormOpen(true)
+  }
+
+  const setAdding = () => {
+    setIsEditing(false)
+    setIsFormOpen(true)
+  }
+
+  const cancel = () => {
+    setIsFormOpen(false)
+    setIsEditing(false)
+  }
+
+  const Cardapio = isFormOpen ? (
+    <FormProduto isEditing={isEditing} cancel={cancel} />
+  ) : (
+    <div className="grid">
+      {restaurante?.cardapio.map((c) => (
+        <CardProduto
+          setIsEditing={setEditing}
+          key={c.id}
+          variant="management"
+          produto={c}
+        />
+      ))}
+    </div>
+  )
+
+  const componentes = {
+    pedido: <PedidosContainer variant="management" restaurante={restaurante} />,
+    cardapio: Cardapio,
+    config: (
+      <FormRestaurante cancel={() => console.log('fechou')} editing={true} />
+    )
+  }
 
   return (
     <div className="container">
@@ -66,7 +111,7 @@ const GerenciarRestauranteComponent = () => {
               <p>Produtos e preços</p>
               <div className="flex">
                 <FontAwesomeIcon icon={faBoxOpen} />
-                <p>N produtos</p>
+                <p>{restaurante?.cardapio.length} produtos</p>
               </div>
             </div>
           </div>
@@ -95,20 +140,13 @@ const GerenciarRestauranteComponent = () => {
               <p>{titulo}</p>
               <p className="desc">{descricao}</p>
             </div>
-            {isActive == 'cardapio' && (
-              <Button className="red" padding="light">
+            {isActive == 'cardapio' && !isFormOpen && (
+              <Button onClick={setAdding} className="red" padding="light">
                 + Novo produto
               </Button>
             )}
           </div>
-          {isActive == 'cardapio' && (
-            <div className="grid">
-              {restaurante?.cardapio.map((c) => (
-                <CardProduto variant="management" produto={c} />
-              ))}
-            </div>
-          )}
-          {isActive == 'config' && <FormConfigRestaurante />}
+          {componentes[isActive]}
         </div>
       </ContainerGerenciar>
     </div>

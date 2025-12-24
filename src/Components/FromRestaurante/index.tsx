@@ -1,8 +1,14 @@
 import Button from '../Button'
 
-const FormConfigRestaurante = () => {
+interface FormRestauranteProps {
+  editing: boolean
+  cancel: () => void
+}
+
+const FormRestaurante = ({ editing, cancel }: FormRestauranteProps) => {
   return (
     <form>
+      {!editing ? <p className="title-form">Adicionar um restaurante</p> : null}
       <div className="input-wrapper">
         <label htmlFor="titulo">Nome do restaurante</label>
         <input type="text" />
@@ -28,15 +34,20 @@ const FormConfigRestaurante = () => {
         <input type="text" id="number" />
       </div>
       <div className="flex">
-        <Button className='shine' padding="light" type="button">
-          Cancelar
-        </Button>
         <Button padding="light" className="red">
-          Salvar alterações
+          {editing ? 'Salvar alterações' : 'Adicionar'}
+        </Button>
+        <Button
+          onClick={cancel}
+          className="shine"
+          padding="light"
+          type="button"
+        >
+          Cancelar
         </Button>
       </div>
     </form>
   )
 }
 
-export default FormConfigRestaurante
+export default FormRestaurante

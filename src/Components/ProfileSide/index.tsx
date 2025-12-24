@@ -31,7 +31,7 @@ const ProfileSide = () => {
         <li onClick={() => onClick('/profile')}>Meus dados</li>
         <li onClick={() => onClick('/adress')}>Endereços</li>
         <li onClick={() => onClick('/restaurante/novo')}>
-          Cadastrar um restaurante
+          Meus Restaurantes
         </li>
         <li onClick={() => dispatch(openSideBar('cart'))}>Carrinho</li>
         <li onClick={sair}>Sair</li>

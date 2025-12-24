@@ -1,14 +1,31 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { breakpoint, cores } from '../../GlobalStyle'
 
 interface CardProdutoProps {
   variant: 'default' | 'management'
 }
 
+const cardVariant = {
+  default: css`
+    padding: 8px;
+    img {
+      max-width: 100%;
+      height: 167px;
+    }
+  `,
+  management: css`
+    padding: 16px;
+
+    img {
+      max-width: 96px;
+      height: 96px;
+    }
+  `
+}
+
 export const CardContainer = styled.div.withConfig({
-  shouldForwardProp: (prop) => !['variant'].includes(prop)
+  shouldForwardProp: (prop) => prop !== 'variant'
 })<CardProdutoProps>`
-  padding: ${({ variant }) => (variant == 'default' ? '8px' : '16px')};
   background-color: ${cores.corTexto};
   color: ${cores.corFooter};
 
@@ -37,14 +54,14 @@ export const CardContainer = styled.div.withConfig({
 
   img {
     object-fit: cover;
-    max-width: ${({ variant }) => (variant == 'default' ? '100%' : '96px')};
     width: 100%;
-    height: ${({ variant }) => (variant == 'default' ? '167px' : '96px')};
   }
 
   @media (max-width: ${breakpoint.tablet}) {
     padding: 8px;
   }
+
+  ${({ variant }) => cardVariant[variant]}
 `
 export const NomeProduto = styled.h4`
   font-size: 16px;

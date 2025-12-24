@@ -18,7 +18,7 @@ const ProfileCard = ({
 }: ProfileProps) => {
   return (
     <S.CardRestauranteItem variant={variant}>
-      <img src={image} />
+      <S.Image variant={variant} fundo={image} />
       <S.DescRestaurante variant={variant}>
         <S.TituloRestaurante variant={variant}>
           <h4>{nome}</h4>

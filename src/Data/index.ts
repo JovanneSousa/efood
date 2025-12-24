@@ -1,6 +1,6 @@
 import type { Restaurante } from '../Pages/Home'
 
-const mediaPath = './'
+const mediaPath = '../'
 
 // type Product = {
 //   id: number
@@ -45,10 +45,10 @@ const items: Restaurante[] = [
     avaliacao: 4.7,
     descricao:
       'A paixão dos nossos talentosos chefs pela cozinha italiana é evidente em cada prato, desde massas caseiras e risotos cremosos até suculentos frutos do mar e carnes tenras. Nosso menu é complementado por uma excelente carta de vinhos, cuidadosamente selecionados para harmonizar com a riqueza dos sabores italianos.',
-    capa: mediaPath + 'bella_tavola_italiana/' + '/capa.jpeg',
+    capa: mediaPath + 'bella_tavola_italiana' + '/capa.jpeg',
     cardapio: [
       {
-        foto: mediaPath + 'bella_tavola_italiana/' + '/1.webp',
+        foto: mediaPath + 'bella_tavola_italiana' + '/1.webp',
         preco: 69.9,
         id: 1,
         nome: 'Ravioli al Tartufo Nero',
@@ -57,7 +57,7 @@ const items: Restaurante[] = [
         porcao: '1 a 2 pessoas'
       },
       {
-        foto: mediaPath + 'bella_tavola_italiana/' + '/2.jpg',
+        foto: mediaPath + 'bella_tavola_italiana' + '/2.jpg',
         preco: 56.9,
         id: 2,
         nome: 'Spaghetti alla Carbonara',
@@ -66,7 +66,7 @@ const items: Restaurante[] = [
         porcao: '1 a 2 pessoas'
       },
       {
-        foto: mediaPath + 'bella_tavola_italiana/' + '/3.jpg',
+        foto: mediaPath + 'bella_tavola_italiana' + '/3.jpg',
         preco: 74.9,
         id: 3,
         nome: 'Risotto ai Funghi Porcini',
@@ -75,7 +75,7 @@ const items: Restaurante[] = [
         porcao: '1 a 2 pessoas'
       },
       {
-        foto: mediaPath + 'bella_tavola_italiana/' + '/4.jpg',
+        foto: mediaPath + 'bella_tavola_italiana' + '/4.jpg',
         preco: 89.9,
         id: 4,
         nome: 'Ossobuco alla Milanese',
@@ -84,7 +84,7 @@ const items: Restaurante[] = [
         porcao: '1 a 2 pessoas'
       },
       {
-        foto: mediaPath + 'bella_tavola_italiana/' + '/5.jpg',
+        foto: mediaPath + 'bella_tavola_italiana' + '/5.jpg',
         preco: 62.9,
         id: 5,
         nome: 'Melanzane alla Parmigiana',
@@ -93,7 +93,7 @@ const items: Restaurante[] = [
         porcao: '1 a 2 pessoas'
       },
       {
-        foto: mediaPath + 'bella_tavola_italiana/' + '/6.jpg',
+        foto: mediaPath + 'bella_tavola_italiana' + '/6.jpg',
         preco: 84.9,
         id: 6,
         nome: 'Frutti di Mare Linguine',
@@ -102,7 +102,7 @@ const items: Restaurante[] = [
         porcao: '1 a 2 pessoas'
       },
       {
-        foto: mediaPath + 'bella_tavola_italiana/' + '/7.jpg',
+        foto: mediaPath + 'bella_tavola_italiana' + '/7.jpg',
         preco: 49.9,
         id: 7,
         nome: 'Insalata Caprese',

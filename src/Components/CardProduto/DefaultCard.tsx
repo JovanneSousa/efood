@@ -12,7 +12,6 @@ export interface DefaultProps extends BaseProps {
 
 const DefaultCard = ({ produto }: DefaultProps) => {
   const [isVisible, setIsVisible] = useState(false)
-
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
     null
   )
