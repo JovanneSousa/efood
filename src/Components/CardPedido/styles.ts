@@ -21,7 +21,7 @@ export const CardPedidoContainer = styled.div.withConfig({
     display: flex;
     flex-direction: column;
 
-    gap: ${({ variant }) => (variant == 'profile' ? '8px' : '0')};
+    gap: ${({ variant }) => (variant == 'profile' ? '16px' : '0')};
     width: 100%;
     justify-content: center;
   }

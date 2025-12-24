@@ -17,8 +17,8 @@ const FormAddress = ({ isAdding, closeForm }: FormAddressProps) => {
           <input type="text" id="cep" />
         </div>
         <div className="input-wrapper">
-          <label htmlFor="">Definir como principal</label>
-          <InputToggle background={cores.corFooter} label="Endereço padrão" />
+          <label htmlFor="">Definir principal</label>
+          <InputToggle background={cores.corFooter} label="Padrão" />
         </div>
       </div>
       <div className="input-wrapper">
@@ -30,6 +30,7 @@ const FormAddress = ({ isAdding, closeForm }: FormAddressProps) => {
         <input type="text" id="rua" />
       </div>
       <div className="flex-input-wrapper">
+
         <div className="input-wrapper">
           <label htmlFor="bairro">Bairro</label>
           <input type="text" id="bairro" />
