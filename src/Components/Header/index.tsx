@@ -6,6 +6,7 @@ import type { Restaurante } from '../../Pages/Home'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../store/reducers/auth'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface DefaultHeaderProps {
   variant: 'default'
@@ -22,14 +23,16 @@ type HeaderProps = DefaultHeaderProps | RestaurantHeaderProps
 
 const Header = (props: HeaderProps) => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const expiresIn = Number(localStorage.getItem('expiresIn'))
 
   useEffect(() => {
     if (Date.now() >= expiresIn) {
       dispatch(logout())
+      navigate('/auth/login')
     }
-  }, [dispatch, expiresIn])
+  }, [dispatch, expiresIn, navigate])
 
   if (props.variant == 'restaurante') {
     const { nome, restaurante, tipo } = props
