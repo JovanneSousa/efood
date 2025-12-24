@@ -69,6 +69,11 @@ export const PedidoRow = styled.div`
   justify-content: space-between;
   gap: 8px;
 
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+
   &.margin {
     margin-bottom: 8px;
   }

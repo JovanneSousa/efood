@@ -7,21 +7,31 @@ interface VariantProps {
   variant: Variant
 }
 
+interface ImageProps extends VariantProps {
+  fundo: string
+}
+
 const cardVariants = {
   default: css`
     background-color: ${cores.branco};
     border: 1px solid ${cores.corTexto};
     max-height: 398px;
-
-    > img {
-      max-height: 215px;
-    }
   `,
   profile: css`
     background-color: ${cores.corDeFundoEscura};
-    > img {
-      max-height: 128px;
-    }
+  `
+}
+
+const imagesContainer = {
+  default: css`
+    max-width: 472px;
+    width: 100%;
+    height: 215px;
+  `,
+  profile: css`
+    max-width: 472px;
+    width: 100%;
+    height: 128px;
   `
 }
 
@@ -39,15 +49,22 @@ export const CardRestauranteItem = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== 'variant'
 })<VariantProps>`
   height: 100%;
-  position: relative;
-
-  > img {
-    max-width: 472px;
-    width: 100%;
-    object-fit: cover;
-  }
 
   ${({ variant }) => cardVariants[variant]}
+`
+
+export const Image = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'fundo' && prop !== 'variant'
+})<ImageProps>`
+  background-image: url(${({ fundo }) => fundo});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+
+  ${({ variant }) => imagesContainer[variant]}
 `
 
 export const DescRestaurante = styled.div.withConfig({
@@ -105,7 +122,6 @@ export const ContainerLink = styled.div.withConfig({
   margin-top: 16px;
 
   a {
-    display: ${({ variant }) =>
-      variant == 'profile' ? 'block' : 'inline'};
+    display: ${({ variant }) => (variant == 'profile' ? 'block' : 'inline')};
   }
 `

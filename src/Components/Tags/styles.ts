@@ -7,27 +7,24 @@ interface statusTagProps {
 
 export const TagContainer = styled.div`
   background-color: transparent;
-  position: absolute;
-  top: 8px;
-  right: 8px;
 `
 
 const background = {
   pendente: css`
-    background-color: #edf3fa;
-    color: #345b8c;
+    color: #edf3fa;
+    background-color: #345b8cd9;
   `,
   andamento: css`
-    background-color: #fff4d6;
-    color: #8d6e00;
+    color: #fff4d6;
+    background-color: #8d6e00d9;
   `,
   concluido: css`
-    background-color: #e6f4ea;
-    color: #2e7d32;
+    color: #e6f4ea;
+    background-color: #2e7d32d9;
   `,
   cancelado: css`
-    background-color: #fceaea;
-    color: #c62828;
+    color: #fceaea;
+    background-color: #c62828d9;
   `
 }
 
@@ -37,8 +34,7 @@ export const Tag = styled.span.withConfig({
   color: ${cores.corFooter};
   font-size: 12px;
   padding: 6px 4px;
-  display: inline-block;
-  margin: 8px 8px 0 0;
+  margin-left: 8px;
   ${({ status }) =>
     !status
       ? css`

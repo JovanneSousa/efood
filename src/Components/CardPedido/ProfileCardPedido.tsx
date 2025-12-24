@@ -26,8 +26,10 @@ const ProfileCardPedido = ({
         </ImageContainer>
         <div className="pedido-group">
           <PedidoRow>
-            <p className="nome-restaurante">{restaurante.titulo}</p>
-            <Tag value={['pendente']} status="concluido" />
+            <div className='flex'>
+              <p className="nome-restaurante">{restaurante.titulo}</p>
+              <Tag status="concluido" />
+            </div>
             <p className="preco">R$ 49,59</p>
           </PedidoRow>
           <PedidoRow>

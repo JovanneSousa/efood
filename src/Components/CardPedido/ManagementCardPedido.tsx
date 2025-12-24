@@ -3,6 +3,7 @@ import type { BaseVariantProps } from '.'
 import { CardPedidoContainer, ItemsSection, PedidoRow } from './styles'
 import Button from '../Button'
 import { ImageContainer } from './styles'
+import Tag from '../Tags'
 
 export interface ManagementCardPedidoProps extends BaseVariantProps {
   variant: 'management'
@@ -19,7 +20,10 @@ const ManagementCardPedido = ({
       <div className="pedido-item-container">
         <div className="pedido-group">
           <PedidoRow className="margin">
-            <p className="nome-restaurante">pedido#101</p>
+            <div className="flex">
+              <p className="nome-restaurante">pedido#101</p>
+              <Tag status='pendente'/>
+            </div>
             <p className="preco">Valor total</p>
           </PedidoRow>
           <PedidoRow>

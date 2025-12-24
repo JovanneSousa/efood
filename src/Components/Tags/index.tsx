@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 type Props = {
-  value: string[]
+  value?: string[]
   destaque?: boolean
   status?: 'pendente' | 'andamento' | 'concluido' | 'cancelado'
 }
@@ -21,6 +21,7 @@ const Tag = ({ value, destaque = false, status }: Props) => {
           {cat}
         </S.Tag>
       ))}
+      {status && <S.Tag status={status}>{status}</S.Tag>}
     </S.TagContainer>
   )
 }
